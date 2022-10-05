@@ -3,7 +3,7 @@
 FILE_FOLDER = "Data"
 
 # THIS IS THE FILENAME OF CSV FILE WHICH CONTAINS DETAILS OF THE HRs
-FILE_NAME = "apollo-contacts-export.csv"
+# FILE_NAME = "apollo-contacts-export.csv"
 
 # THIS IS THE FOLDER WHERE RESUME AND CV IS LOCATED
 RESUME_FOLDER = "Resume"
@@ -49,8 +49,8 @@ PERSONAL_DETAILS = """
 PortFolio : https://ameyportfolio.netlify.app
 """
 
-# EMAIL BODY
-INTERN_REFERAL = """Hi {firstName} {lastName},<br>
+# EMAIL BODY  {lastName}
+INTERN_REFERAL = """Hi {firstName},<br>
 <br>
 Hope you are doing well!
 <br>

@@ -2,7 +2,7 @@ import csv
 
 from mail import Mail
 
-READ_URL = "./Data/apollo-contacts-export.csv"
+READ_URL = "./Data/MailingList.csv"
 OUT_URL = "./mailingOutput"
 
 mailingList = []
@@ -14,7 +14,7 @@ with open(READ_URL) as csv_file:
         if count == 0:
             print("Reading Heading")
         else:
-            mailingList.append((row[0], row[1], row[2].strip(),row[3],row[4]))
+            mailingList.append((row[0], row[1], row[2].strip(), row[3])) #,row[4]))
         count+=1
 
 

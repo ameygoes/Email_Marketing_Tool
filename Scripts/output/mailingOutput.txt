@@ -1,9 +1,3 @@
-Amey,Bhilegaonkar,feardarkgodgaming@gmail.com,Sent for DATA
-
-Aditi,Joshi,bhilegaonkar11@gmail.com,Sent for SDE
-
-Kate,Mate,bamey2241997@gmail.com,Sent for DEVOPS
-
 Sydney,Kelsey,sydney.kelsey@akunacapital.com,Sent for DATA on 2022-09-07
 
 Claire,Hutcheson,chutch@amazon.com,Sent for DATA on 2022-09-07
@@ -328,3 +322,28 @@ Anthony, ,anthony.dicicco@regeneron.com,Sent for DATA on 2022-09-16
 Franco, ,francobulaon@microsoft.com,Sent for DATA on 2022-09-16
 Mina, ,mhur@riotgames.com,Sent for DATA on 2022-09-16
 Dawn, ,dharvey@cisco.com,Sent for DATA on 2022-09-16
+Nadya, ,nadya_shapiro@apple.com,Sent for folloupUniv on 2022-10-27
+Bridgette, ,deanb@apple.com,Sent for folloupUniv on 2022-10-27
+Elis, ,eneys@apple.com,Sent for folloupUniv on 2022-10-27
+Caleyah, ,cgaither@apple.com,Sent for folloupUniv on 2022-10-27
+Michelle, ,m_yankovich@apple.com,Sent for folloupUniv on 2022-10-27
+Gerilyn, ,roll@apple.com,Sent for folloupUniv on 2022-10-27
+Melissa, ,melissa_bailey@apple.com,Sent for folloupUniv on 2022-10-27
+Amey, ,feardarkgodgaming@gmail.com,Sent for referral on 2022-10-27
+Kate, ,bamey2241997@gmail.com,Sent for referral on 2022-10-27
+Kate, ,bhilegaonkar11@gmail.com,Sent for referral on 2022-10-27
+Anuj, ,maheshwaria@microsoft.com,Sent for referral on 2022-10-27
+Chioma, ,v-chacho@microsoft.com,Sent for referral on 2022-10-27
+Tejaswi, ,tejaswi.paruchuri@microsoft.com,Sent for referral on 2022-10-27
+Brooke, ,brookes@microsoft.com,Sent for referral on 2022-10-27
+Shraddha, ,svarat@microsoft.com,Sent for referral on 2022-10-27
+Ashish, ,agadkari@microsoft.com,Sent for referral on 2022-10-27
+Saurabh, ,saurabha@microsoft.com,Sent for referral on 2022-10-27
+Tim, ,krenz@google.com,Sent for folloupUniv on 2022-10-27
+Laura, ,lbrabham@google.com,Sent for folloupUniv on 2022-10-27
+Aaron, ,mayberrya@google.com,Sent for folloupUniv on 2022-10-27
+Aiminh, ,aiminh@google.com,Sent for folloupUniv on 2022-10-27
+Chris, ,chrisrivera@google.com,Sent for folloupUniv on 2022-10-27
+Mallory, ,mallorymiller@google.com,Sent for folloupUniv on 2022-10-27
+Sara, ,swhitfield@google.com,Sent for folloupUniv on 2022-10-27
+Jenny, ,jdemarie@google.com,Sent for folloupUniv on 2022-10-27

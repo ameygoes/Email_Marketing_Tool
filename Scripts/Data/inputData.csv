@@ -1,4 +1,4 @@
-FirstName,LastName,Email,Company,Position
-Amey,Bhilegaonkar,feardarkgodgaming@gmail.com,ASU,DATA
-Aditi,Joshi,bhilegaonkar11@gmail.com,Google,SDE
-Kate,Mate,bamey2241997@gmail.com,Mountain High,DEVOPS
+FirstName,Email,Company,Position
+Amey,ASU,feardarkgodgaming@gmail.com,DATA
+Kate,Mountain High,bamey2241997@gmail.com,DATA
+Kate,Apple,bhilegaonkar11@gmail.com,DEVOPS

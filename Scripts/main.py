@@ -19,7 +19,4 @@ with open(READ_URL) as csv_file:
 
 
 mail_agent = Mail()
-
-
-
 mail_agent.send(mailingList, OUT_URL)

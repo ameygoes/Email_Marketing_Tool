@@ -42,6 +42,8 @@ class Mail:
                 employee_writer.writerow([first_Name, " ", email, f'Sent for referral on {today}'])
             elif askingfor == "folloupUniv":
                 employee_writer.writerow([first_Name, " ", email, f'Sent for folloupUniv on {today}'])
+            elif askingfor == "grader":
+                employee_writer.writerow([first_Name, " ", email, f'Sent for grader on {today}'])
 
         print(f"Email Sent to: {email}")
 
@@ -56,8 +58,8 @@ class Mail:
         # personalDetails=PERSONAL_DETAILS
         ), 'html')
 
-    def getTeacherMailBody():
-        pass
+    def getTeacherMailBody(self):
+        return MIMEText(graderMail, 'html')
 
     def getUniversityRelationsFollowUp(self, first_Name, company):
         return MIMEText(followUpBody2.format(
@@ -77,17 +79,23 @@ class Mail:
             mail['Subject'] = SUBJECT
             mail['From'] = self.sender_mail
             mail['To'] = email
-
+            pdfname = "Amey_Bhilegaonkar_Resume.pdf"
             if askingfor == "referral":
                 text_content = self.getInternalReferalContent(first_Name, company, Position)
 
                 # ATTACH RESUME WITH EMAIL
-                pdfname = "Amey_Bhilegaonkar_Resume.pdf"
+
                 Resume_File_Path = os.path.join(BASE_PATH, FILE_FOLDER, RESUME_FOLDER, Position, RESUME_FILE_NAME)
-                mimeBase = self.attachDocument(mail, Resume_File_Path, pdfname)
+                self.attachDocument(mail, Resume_File_Path, pdfname)
 
             elif askingfor == "folloupUniv":
                 text_content = self.getUniversityRelationsFollowUp(first_Name, company)
+                # print(text_content)
+
+            elif askingfor == "grader":
+                text_content = self.getTeacherMailBody()
+                Resume_File_Path = os.path.join(BASE_PATH, FILE_FOLDER, RESUME_FOLDER, Position, RESUME_FILE_NAME)
+                self.attachDocument(mail, Resume_File_Path, pdfname)
                 # print(text_content)
 
             else:
@@ -101,5 +109,7 @@ class Mail:
             if not self.checkInFile(email, output):
                 service.sendmail(self.sender_mail, email, mail.as_string())
                 self.writeToOutputFile(first_Name, email, output, askingfor)
+            else:
+                print(f"Skipping {email}")
 
         service.quit()

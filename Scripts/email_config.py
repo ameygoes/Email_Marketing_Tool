@@ -5,7 +5,7 @@ email_Sign = """<table cellpadding="0" cellspacing="0" class="sc-gPEVay eQYmiW" 
 
 FROM = 'abhilega@asu.edu'
 gmail_password = os.environ.get('gmail_password')
-SUBJECT = 'Summer Internship Application 2023'
-
+# SUBJECT = 'Summer Internship Application 2023'
+SUBJECT = 'Grader, Tutor, and Lab Assistant Application Request | Amey Bhilegaonkar'
 # to = 'aditisjoshi14@gmail.com'
 # to = 'ajoshi64@asu.edu'

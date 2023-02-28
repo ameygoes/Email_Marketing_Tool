@@ -79,14 +79,16 @@ class Mail:
             mail['Subject'] = SUBJECT
             mail['From'] = self.sender_mail
             mail['To'] = email
-            pdfname = "Amey_Bhilegaonkar_Resume.pdf"
+            resumeFileName = "Amey_Bhilegaonkar_Resume.pdf"
+            MSTxcptsFileName = "Amey_Bhilegaonkar_Masters_Grades.pdf"
+            BETxcptsFileName = "Amey_Bhilegaonkar_Bachelors_Grades.pdf"
             if askingfor == "referral":
                 text_content = self.getInternalReferalContent(first_Name, company, Position)
 
                 # ATTACH RESUME WITH EMAIL
 
                 Resume_File_Path = os.path.join(BASE_PATH, FILE_FOLDER, RESUME_FOLDER, Position, RESUME_FILE_NAME)
-                self.attachDocument(mail, Resume_File_Path, pdfname)
+                self.attachDocument(mail, Resume_File_Path, resumeFileName)
 
             elif askingfor == "folloupUniv":
                 text_content = self.getUniversityRelationsFollowUp(first_Name, company)
@@ -94,8 +96,18 @@ class Mail:
 
             elif askingfor == "grader":
                 text_content = self.getTeacherMailBody()
+                # attach resume
                 Resume_File_Path = os.path.join(BASE_PATH, FILE_FOLDER, RESUME_FOLDER, Position, RESUME_FILE_NAME)
-                self.attachDocument(mail, Resume_File_Path, pdfname)
+                self.attachDocument(mail, Resume_File_Path, resumeFileName)
+
+                # attach transcripts
+                ms_txpts_File_Path = os.path.join(TRANSCRIPTS_FOLDER, MS_TRANSCRIPTS_NAME)
+                self.attachDocument(mail, ms_txpts_File_Path, MSTxcptsFileName)
+
+                # attach transcripts
+                be_txpts_File_Path = os.path.join(TRANSCRIPTS_FOLDER, BE_TRANSCRIPTS_NAME)
+                self.attachDocument(mail, be_txpts_File_Path, BETxcptsFileName)
+
                 # print(text_content)
 
             else:

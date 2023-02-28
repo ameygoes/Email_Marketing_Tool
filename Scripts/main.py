@@ -3,7 +3,7 @@ from config import *
 from mail import Mail
 
 READ_URL = f"./{FILE_FOLDER}/{FILE_NAME}"
-OUT_URL = f"./{OUTPUT_FOLDER}/{OUTPUT_FILE}"
+OUT_URL = f"./{OUTPUT_FOLDER}/{ASKING_FOR}/{OUTPUT_FILE}"
 
 mailingList = []
 with open(READ_URL) as csv_file:

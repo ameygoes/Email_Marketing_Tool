@@ -1,9 +1,10 @@
+import os
 # THIS DEFINES YOUR MAIN FOLDER AFTER THE ROOT FILE_FOLDER
 # ROOT FOLDER IS WHERE YOUR SENDEMAILUSINGGMAIL SCRIPT IS LOCATED
 FILE_FOLDER = "Data"
 
 # THIS IS THE FILENAME OF CSV FILE WHICH CONTAINS DETAILS OF THE HRs
-# FILE_NAME = "teacherEmails.csv"
+# FILE_NAME = "inputData.csv"
 FILE_NAME = "Teacher.csv"
 
 # ASKING_FOR = "referral" #"folloupUniv"
@@ -11,12 +12,14 @@ FILE_NAME = "Teacher.csv"
 ASKING_FOR = "grader"
 
 # THIS IS THE FOLDER WHERE RESUME AND CV IS LOCATED
-RESUME_FOLDER = "Resume"
+RESUME_FOLDER = os.path.join("C:", os.sep, "Amey", "Resume", "JP_Based_Resumes")
+TRANSCRIPTS_FOLDER =os.path.join("C:", os.sep, "Amey", "MyDocuments")
 
 # THIS IS YOUR FILE NAME OF RESUME AND COVERLETTER
-RESUME_FILE_NAME="AmeyBhilegaonkarMastersResume.pdf"
+RESUME_FILE_NAME="AmeyBhilegaonkarResume.pdf"
 COVER_LETTER_FILE_NAME = "Amey_Bhilegaonkar.pdf"
-
+MS_TRANSCRIPTS_NAME = "FALL-2022-Grades.pdf"
+BE_TRANSCRIPTS_NAME = "AmeyBhilegaonkarTranscripts.pdf"
 
 OUTPUT_FOLDER = "output"
 OUTPUT_FILE = "mailingOutput.txt"
@@ -142,15 +145,27 @@ Best wishes, <br>
 Amey Bhilegaonkar
 
 """
-
+#
+# I’ve taken the following coursework from various domains in my undergraduate studies:
+# <br>
+#     1. Data Structures and Algorithms <br>
+#     2. Object Oriented Programming with C++ and Java<br>
+#     3. Systems Programming and Operating System<br>
+#     4. Data Base Management System<br>
+#     5. Computer Networks<br>
+#     6. Artificial Intelligence<br>
+#     7. Engineering Mathematics 1,2,3<br>
+#     8. Machine Learning<br>
+#     9. Microprocessors and Microcontrollers<br>
+#     10. Digital Image Processing<br>
+# <br>
 
 graderMail = """
 Dear Professor, <br>
 <br>
-I am <strong> Amey Bhilegaonkar</strong>, a Master's in Computer Science student for the Fall 2022 term with ASU ID: 1225368924, <br>
-writing to apply for <strong>Grader, Tutor, and Lab Assistant</strong> job opportunity for <strong> Spring 2023 </strong>.
-<br>
-Currently, I am enrolled in the below courses at the Tempe campus:<br>
+I am <strong> Amey Bhilegaonkar</strong>, a Master's in Computer Science student, writing to apply for <strong>Grader, Tutor, TA, and Lab Assistant</strong> job opportunity for <strong> Spring 2023 </strong>.
+<br><br>
+I took below courses at the Tempe campus for fall 2022:<br>
 
 1. CSE 575 Statistical Machine Learning
 <br>
@@ -158,39 +173,35 @@ Currently, I am enrolled in the below courses at the Tempe campus:<br>
 <br>
 3. CSE 543 Information Assurance and Security
 <br>
-
-I have completed my undergraduate studies in Electronics and Telecommunications Engineering with a CGPA of 8.78 out of 10. I have some experience in grading assignments in two subjects during my undergrad. <br>
-Also, I've assisted and mentored several juniors as a tutor and helped them clear their doubts and get good grades. <br>
 <br>
-I’ve taken the following coursework from various domains in my undergraduate studies:
+In Spring 2023, I am taking below courses:<br>
+1. Data Processing at Scale
 <br>
-    1. Data Structures and Algorithms <br>
-    2. Object Oriented Programming with C++ and Java<br>
-    3. Systems Programming and Operating System<br>
-    4. Data Base Management System<br>
-    5. Computer Networks<br>
-    6. Artificial Intelligence<br>
-    7. Engineering Mathematics 1,2,3<br>
-    8. Machine Learning<br>
-    9. Microprocessors and Microcontrollers<br>
-    10. Digital Image Processing<br>
+2. Data Mining
 <br>
-
-During my undergraduate study, I lead Machine Learning Club along with my teammate, which was focused on guiding and mentoring juniors and making them aware of projects and research going on in the field of Machine Learning and Data science.<br>
-I also worked on projects like Emotion Detection using Speech and Images. Build my End-to-End software which was used to ease out the training and placement process for the college. <br>
-
-
-I also have 3+ years of experience working as a <strong>Data Analyst and Data Engineer</strong>, at a Digital Business transformation company called Publicis Sapient. <br>
-At Publicis Sapient, I evolved as a Software Developer and learned many things, including Distributed Database Systems, Cloud technologies like AWS, GCP, Design Patterns, SDLC, Agile, DevOps, etc.<br>
+3. Knowledge Representation
 <br>
-Your time is valuable and I understand if you don’t have the bandwidth. I’ve been consistently applying to the <strong>Grader, Tutor, and Lab Assistant positions </strong> and I’m hoping to be noticed soon. <br>
 <br>
-Thank you for taking the time to consider my request. Have an amazing rest of the day. <br>
-
-PS: I have attached my resume with this mail, and here is my Portfolio: https://ameyportfolio.netlify.app
+I have completed my undergraduate studies in Electronics and Telecommunications Engineering with a CGPA of 8.78 / 10. I have experience in grading assignments in two subjects for private tution teacher. Also, I've assisted and mentored several juniors as a tutor and helped them clear their doubts and get good grades.
+<br>
+<br>
+I also conduct online helping sessions called: <strong> A helping hand </strong> for undergraduate students to guide and mentor them through my linkedin.
+<br>
+<br>
+During my undergraduate study, I lead Machine Learning Club along with my teammate, which was focused on guiding and mentoring juniors and making them aware of projects and research going on in the field of Machine Learning and Data science. I also worked on projects like Emotion Detection using Speech and Images. Build my End-to-End project which was used to ease out the training and placement process for the college.
+<br>
+<br>
+I also have 3+ years of experience working as a <strong>Data Engineer</strong>, at a Digital Business transformation company called Publicis Sapient. At Publicis Sapient, I evolved as a Software Developer and learned many things, including Distributed Database Systems, Cloud technologies like AWS, GCP, Design Patterns, SDLC, Agile, DevOps, etc.
+<br>
+<br>
+Your time is valuable and I understand if you don’t have the bandwidth. I’ve been consistently applying to the <strong>Grader, Tutor, TA, and Lab Assistant positions </strong> and I’m hoping to be noticed soon.
+<br>
+<br>
+Thank you for taking the time to consider my request. Have an amazing rest of the day.
+<br>
+PS: I have attached my resume and transcripts with this mail, and here is my Portfolio: https://ameyportfolio.netlify.app
 <br>
 <br>
 Thank You, <br>
-<br>
 Amey Bhilegaonkar
 """

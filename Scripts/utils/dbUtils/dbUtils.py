@@ -1,5 +1,5 @@
 import mysql.connector as mysqlConnector
-from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD, TABLE_NAME, TEST_TABLE_NAME
+from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD, TABLE_NAME, TEST_TABLE_NAME, CHECK_DB, CHECK_TABLE
 from utils.constants import SQL_FILE_PREFIX
 from utils.osUtils.osUtils import getOSPath, getBaseDir
 
@@ -15,7 +15,7 @@ def getErrorDetails(errorObject):
 
 
 # EXECUTE INSERT COMMAND
-def executeInsertCommand(command):
+def executeCommand(command):
     # Open SQL Connection
     sqlConnector = mysqlConnector.connect(
         host=HOST_NAME,
@@ -103,7 +103,7 @@ def executeSQLFile(SQLFilePath):
     # Close the Connection
     sqlConnector.close()
 
-def checkIfDBEXists(dbname):
+def selectQuery(query):
 
     sqlConnector = mysqlConnector.connect(
         host=HOST_NAME,
@@ -115,29 +115,7 @@ def checkIfDBEXists(dbname):
 
     mySQLCursor = sqlConnector.cursor()
 
-    mySQLCursor.execute("SHOW DATABASES LIKE '{}'".format(dbname))
-    exists = mySQLCursor.fetchone()
-
-    mySQLCursor.close()
-    sqlConnector.close()
-
-    if exists:
-        return True
-    return False
-
-def checkIfTableEXists(tableName):
-
-    sqlConnector = mysqlConnector.connect(
-        host=HOST_NAME,
-        user=DB_USER_NAME,
-        passwd=DB_PASSWORD,
-        database=DB_NAME,
-        port=PORT_NAME
-    )
-
-    mySQLCursor = sqlConnector.cursor()
-
-    mySQLCursor.execute("SHOW TABLES LIKE '{}'".format(tableName))
+    mySQLCursor.execute(query)
     exists = mySQLCursor.fetchone()
 
     mySQLCursor.close()
@@ -151,11 +129,11 @@ def checkIfTableEXists(tableName):
 # EXECUTE TABLE CREATION
 def createDBBootUp(fileNameList):
 
-    if not checkIfDBEXists(DB_NAME) or not checkIfTableEXists(TABLE_NAME) or not checkIfTableEXists(TEST_TABLE_NAME):
+    if not selectQuery(CHECK_DB.format(DB_NAME)) or not selectQuery(CHECK_TABLE.format(TABLE_NAME)) or not selectQuery(CHECK_TABLE.format(TEST_TABLE_NAME)):
         for fileName in fileNameList:
             FullFilePath = BASE_DIR + SQL_FILE_PREFIX + fileName
             FullFilePath = getOSPath(FullFilePath)
             print("Executing File: {}".format(FullFilePath))
             executeSQLFile(FullFilePath)
     else:
-        print("we already have table and db setup in the DataBase.")
+        print("We already have table and db setup in the DataBase.")

@@ -5,26 +5,27 @@ from email.mime.base import MIMEBase
 from email import encoders
 from pathlib import Path
 import csv, pathlib
-from config import *
-from email_config import *
+from configs.config import *
+from configs.email_config import *
+from configs.dbConfig import *
+from utils.dbUtils import selectQuery
 from datetime import date
-
+from configs.envrinomentSpecificConfgis import TABLE_NAME, ASKING_FOR
 
 class Mail:
 
+    # INIT CONNECTION PARAMETERS 
     def __init__(self):
-        self.port = 465
-        self.smtp_server_domain_name = "smtp.gmail.com"
+        self.port = SMTP_PORT
+        self.smtp_server_domain_name = SMTP_DOMAIN_NAME
         self.sender_mail = FROM
-        self.password = gmail_password
+        self.password = EMAIL_PASS
 
-    def checkInFile(self,search_word,output):
-        file = open(output)
-        if(search_word in file.read()):
-            return True
-        else:
-            return False
+    # CHECK IF EMAIL PRESENT IN DB?
+    def checkIfRecordPresentInDB(self,email_to_search):
+        return selectQuery(SEARCH_QUERY.format(TABLE_NAME, "Email", email_to_search))
 
+    # ATTACH FILE TO MAIL 
     def attachDocument(self, mail, file_Path, fname):
         mimeBase = MIMEBase("application", "octet-stream")
         with open(file_Path, "rb") as file:
@@ -33,6 +34,7 @@ class Mail:
         mimeBase.add_header("Content-Disposition", f"attachment; filename={fname}")
         mail.attach(mimeBase)
 
+    # UPDATE DATABASE / INSERT A ROW IN DATABASE
     def writeToOutputFile(self,first_Name, email, output, askingfor):
         today = date.today()
         with open(output, mode='a') as employee_file:

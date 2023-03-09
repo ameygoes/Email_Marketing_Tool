@@ -1,7 +1,9 @@
 import mysql.connector as mysqlConnector
-from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD, TABLE_NAME, TEST_TABLE_NAME, CHECK_DB, CHECK_TABLE
+from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD, TEST_TABLE_NAME, CHECK_DB, CHECK_TABLE
 from utils.constants import SQL_FILE_PREFIX
 from utils.osUtils.osUtils import getOSPath, getBaseDir
+from configs.envrinomentSpecificConfgis import TABLE_NAME
+import os
 
 BASE_DIR = getBaseDir()
 # RETURN ERROR DETAILS STRING FOR LOGGING
@@ -121,10 +123,11 @@ def selectQuery(query):
 
     mySQLCursor.execute(query)
     exists = mySQLCursor.fetchone()
-
+    print(type.exists)
     mySQLCursor.close()
     sqlConnector.close()
 
+    print(exists)
     if exists:
         return True
     return False
@@ -132,12 +135,13 @@ def selectQuery(query):
 
 # EXECUTE TABLE CREATION
 def createDBBootUp(fileNameList):
-
-    if not selectQuery(CHECK_DB.format(DB_NAME)) or not selectQuery(CHECK_TABLE.format(TABLE_NAME)) or not selectQuery(CHECK_TABLE.format(TEST_TABLE_NAME)):
-        for fileName in fileNameList:
-            FullFilePath = BASE_DIR + SQL_FILE_PREFIX + fileName
-            FullFilePath = getOSPath(FullFilePath)
-            print("Executing File: {}".format(FullFilePath))
-            executeSQLFile(FullFilePath)
-    else:
+    print("=======================================================================================")
+    # print(selectQuery(CHECK_DB.format(DB_NAME)))
+    # if not selectQuery(CHECK_DB.format(DB_NAME)) or not selectQuery(CHECK_TABLE.format(TABLE_NAME)) or not selectQuery(CHECK_TABLE.format(TEST_TABLE_NAME)):
+    for fileName in fileNameList:
+        FullFilePath = os.path.join(BASE_DIR, SQL_FILE_PREFIX, fileName)
+        FullFilePath = getOSPath(FullFilePath)
+        print("Executing File: {}".format(FullFilePath))
+        executeSQLFile(FullFilePath)
+    # else:
         print("We already have table and db setup in the DataBase.")

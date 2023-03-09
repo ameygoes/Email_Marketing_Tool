@@ -5,9 +5,12 @@ from utils.osUtils.osUtils import getOSPath, getBaseDir
 
 BASE_DIR = getBaseDir()
 # RETURN ERROR DETAILS STRING FOR LOGGING
+
+
 def getErrorDetails(errorObject):
     return "{} \n {} \n {} \n {}".format(
-        "Exception Occurred while Operating on Database: {}".format(errorObject),
+        "Exception Occurred while Operating on Database: {}".format(
+            errorObject),
         "Error Code: {}".format(errorObject.errno),
         "SQL_STATE: {}".format(errorObject.sqlstate),
         "Error Message: {}".format(errorObject.msg)
@@ -102,6 +105,7 @@ def executeSQLFile(SQLFilePath):
 
     # Close the Connection
     sqlConnector.close()
+
 
 def selectQuery(query):
 

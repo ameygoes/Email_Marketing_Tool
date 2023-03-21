@@ -9,7 +9,7 @@ Company VARCHAR(250),
 LinkedinProfile VARCHAR(250),
 IsProfessor boolean,
 SentFor VARCHAR(250) NOT NULL,
-FirstEmailSentOn TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FirstEmailSentOn TIMESTAMP DEFAULT NULL,
 FollowedUpOn TIMESTAMP
 );
 
@@ -22,6 +22,6 @@ Company VARCHAR(250),
 LinkedinProfile VARCHAR(250),
 IsProfessor boolean,
 SentFor VARCHAR(250) NOT NULL,
-FirstEmailSentOn TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FirstEmailSentOn TIMESTAMP DEFAULT NULL,
 FollowedUpOn TIMESTAMP
 )

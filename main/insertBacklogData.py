@@ -18,11 +18,12 @@ def fillBacklogDataFromFile(filePath):
         hrMail.SentFor = infoList[3].split(" ")[2]
         hrMail.FirstEmailSentOn = infoList[3].split(" ")[4]
         hrMail.LinkedinProfile = None
-        if (hrMail.SentFor == 'DATA' or hrMail.SentFor == 'referral' or hrMail.SentFor == 'folloupUniv'):
+        if (hrMail.SentFor == 'grader'):
+            hrMail.IsProfessor = True
+            hrMail.SentFor = "Grader Application"
+        else:
             hrMail.IsProfessor = False
             hrMail.SentFor = "Internship - DE"
-        else:
-            hrMail.IsProfessor = True
         hrMail.insertObjectInDBHr()
 
 

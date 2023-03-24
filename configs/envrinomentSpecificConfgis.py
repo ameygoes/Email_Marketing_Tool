@@ -6,6 +6,4 @@ if ENVIRONMENT.lower() == 'prod':
 else:
     TABLE_NAME = TEST_TABLE_NAME
 
-if ASKING_FOR.lower() == 'grader':
-
-else:
+# if ASKING_FOR.lower() == 'grader':

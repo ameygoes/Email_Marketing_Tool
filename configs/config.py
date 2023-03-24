@@ -12,14 +12,15 @@ FILE_NAME = "Teacher.csv"
 ASKING_FOR = "grader"
 
 
-ENVIRONMENT = "PROD" # - POSSIBLE VALUES - DEV, PROD
+ENVIRONMENT = "DEV"  # - POSSIBLE VALUES - DEV, PROD
 
 # THIS IS THE FOLDER WHERE RESUME AND CV IS LOCATED
-RESUME_FOLDER = os.path.join("C:", os.sep, "Amey", "Resume", "JP_Based_Resumes")
-TRANSCRIPTS_FOLDER =os.path.join("C:", os.sep, "Amey", "MyDocuments")
+RESUME_FOLDER = os.path.join(
+    "C:", os.sep, "Amey", "Resume", "JP_Based_Resumes")
+TRANSCRIPTS_FOLDER = os.path.join("C:", os.sep, "Amey", "MyDocuments")
 
 # THIS IS YOUR FILE NAME OF RESUME AND COVERLETTER
-RESUME_FILE_NAME="AmeyBhilegaonkarResume.pdf"
+RESUME_FILE_NAME = "AmeyBhilegaonkarResume.pdf"
 COVER_LETTER_FILE_NAME = "Amey_Bhilegaonkar.pdf"
 MS_TRANSCRIPTS_NAME = "FALL-2022-Grades.pdf"
 BE_TRANSCRIPTS_NAME = "AmeyBhilegaonkarTranscripts.pdf"
@@ -34,30 +35,30 @@ OUTPUT_FILE = "mailingOutput.txt"
 
 # SKILLS
 SKILL_SET = {
-    "SDE" : {
-        "SKILLS" : "Java, Spring boot, Python, Django, Databases, Cloud Technologies, Springboot, Apache Spark, Cassandra, Kafka, Airflow, Pandas, Keras",
-        "TITLE" : "Associate Software Development Engineer 2",
+    "SDE": {
+        "SKILLS": "Java, Spring boot, Python, Django, Databases, Cloud Technologies, Springboot, Apache Spark, Cassandra, Kafka, Airflow, Pandas, Keras",
+        "TITLE": "Associate Software Development Engineer 2",
         "LOOKING_TITLE": "Software Development Engineer",
         "NATURAL_INTERESTS": "computer science, Data Structure and Algorithms, Distributed Systems, and Backend Engineering"
     },
 
-    "DEVOPS" : {
-        "SKILLS" : "AWS, GCP, Terraform, Jenkins, Docker, Kubernetes, CICD, Python, Java, Bash, Linux, Automation, Databases, DevOps, Git and Version control, code refactoring",
-        "TITLE" : "Associate DevOps Engineer",
+    "DEVOPS": {
+        "SKILLS": "AWS, GCP, Terraform, Jenkins, Docker, Kubernetes, CICD, Python, Java, Bash, Linux, Automation, Databases, DevOps, Git and Version control, code refactoring",
+        "TITLE": "Associate DevOps Engineer",
         "LOOKING_TITLE": "DevOps Engineer / SRE",
         "NATURAL_INTERESTS": "computer science, Cloud Technologies, and Automation"
     },
-    "DATA" : {
-        "SKILLS" : "Python, MySQL, Pandas, Apache Spark, Airflow, Distributed Databases Systems, Data Cleaning, Data Extraction, Data Visualization",
-        "TITLE" : "Data Analyst and Data Engineer",
+    "DATA": {
+        "SKILLS": "Python, MySQL, Pandas, Apache Spark, Airflow, Distributed Databases Systems, Data Cleaning, Data Extraction, Data Visualization",
+        "TITLE": "Data Analyst and Data Engineer",
         "LOOKING_TITLE": "Data Engineer and Data Science",
         "NATURAL_INTERESTS": "Data Engineering, Distributed Systems, and Large Data Processing"
     },
 }
 
 PRONOUNS = {
-"M" : "Mr.",
-"F" : "Ms."
+    "M": "Mr.",
+    "F": "Ms."
 }
 
 # ADD YOUR PERSONAL DETAILS HERE TO SEND ALONG WITH MAIL

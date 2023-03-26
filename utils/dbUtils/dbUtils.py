@@ -1,5 +1,5 @@
 import mysql.connector as mysqlConnector
-from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD
+from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD, CHECK_IF_EXISTS
 from utils.constants import SQL_FILE_PREFIX
 from utils.osUtils.osUtils import getOSPath, getBaseDir
 from configs.envrinomentSpecificConfgis import TABLE_NAME
@@ -49,7 +49,7 @@ def executeCommand(command):
     sqlConnector.close()
 
 
-def executeCommand2(command, val):
+def executeCommand2(command, vals):
     # Open SQL Connection
     sqlConnector = mysqlConnector.connect(
         host=HOST_NAME,
@@ -60,19 +60,22 @@ def executeCommand2(command, val):
     )
 
     mySQLCursor = sqlConnector.cursor()
-    # print("SQL command:", command % val)
     try:
-        # Convert datetime values to string in MySQL format
-        # for i in range(len(val)):
-        #     if isinstance(val[i], datetime.datetime):
-        #         val[i] = val[i].strftime('%Y-%m-%d %H:%M:%S')
-        # Execute Command
-        mySQLCursor.execute(command, val)
+        
+        mySQLCursor.execute(CHECK_IF_EXISTS.format(TABLE_NAME), (vals[2],))
+        result = mySQLCursor.fetchone()[0]
+        if result == 0:
+            mySQLCursor.execute(command, vals)
 
-        # Insert into DB
-        sqlConnector.commit()
-
+            # Insert into DB
+            sqlConnector.commit()
+            # print("Inserted!!")
+        else:
+            # pass
+            print(f"Record with email: {vals[2]} already exists, skipping!")
+        
     except mysqlConnector.Error as err:
+        print(command)
         print(getErrorDetails(err))
 
     # Close the Connection

@@ -13,10 +13,23 @@ class HR_mail_pojo():
         self.Email = None
         self.Company = None
         self.LinkedinProfile = None
-        self.IsProfessor = True
+        self.IsProfessor = False
         self.SentFor = None
         self.FirstEmailSentOn = None
         self.FollowedUpOn = None
+        self.IsRecruiter = None
+        self.IsDeveloper = None
+        self.DidSend = None
+
+
+    @staticmethod
+    def getObjectValueList(listOfObjects):
+        values = []
+        for obj in listOfObjects:
+            values.append((obj.FirstName, obj.LastName, obj.Email, obj.Company, obj.LinkedinProfile,
+                  obj.IsProfessor, obj.IsRecruiter,obj.IsDeveloper,obj.DidSend, obj.SentFor, obj.FirstEmailSentOn, obj.FollowedUpOn))
+        return values
+
 
     # INSERT OBJECT INTO DB
     def insertObjectInDB(self):
@@ -47,10 +60,12 @@ class HR_mail_pojo():
             )
         )
 
-    def insertObjectInDBHr(self):
-        values = (self.FirstName, self.LastName, self.Email, self.Company, self.LinkedinProfile,
-                  self.IsProfessor, self.SentFor, self.FirstEmailSentOn, self.FollowedUpOn)
-        executeCommand2(INSERT_QUERY_htr.format(TABLE_NAME), values)
+    @staticmethod
+    def insertObjectInDBHr(listOfObjects):
+        values = HR_mail_pojo.getObjectValueList(listOfObjects)
+        for val in values:
+            executeCommand2(INSERT_QUERY_htr.format(TABLE_NAME), val)
+
 
     # UPDATE RECORD IN DB
     def updateRecordInDB(self, COL_UPDATED, VALUE, STR_FLAG=False):

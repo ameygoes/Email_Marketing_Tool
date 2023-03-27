@@ -5,7 +5,7 @@ from utils.osUtils.osUtils import getOSPath, getBaseDir
 from configs.envrinomentSpecificConfgis import TABLE_NAME
 import os
 import datetime
-
+import pandas as pd
 
 BASE_DIR = getBaseDir()
 # RETURN ERROR DETAILS STRING FOR LOGGING
@@ -47,6 +47,7 @@ def executeCommand(command):
     # Close the Connection
     mySQLCursor.close()
     sqlConnector.close()
+
 
 
 def executeCommand2(command, vals):
@@ -145,6 +146,7 @@ def executeSQLFile(SQLFilePath):
     sqlConnector.close()
 
 
+
 def selectQuery(query):
 
     sqlConnector = mysqlConnector.connect(
@@ -181,3 +183,22 @@ def createDBBootUp(fileNameList):
         executeSQLFile(FullFilePath)
     # else:
         print("We already have table and db setup in the DataBase.")
+
+
+
+def readSQLQueryinPD(command):
+# Connect to the database
+    sqlConnector = mysqlConnector.connect(
+        host=HOST_NAME,
+        user=DB_USER_NAME,
+        passwd=DB_PASSWORD,
+        database=DB_NAME,
+        port=PORT_NAME
+    )
+
+    # Read the query results into a pandas DataFrame
+    df = pd.read_sql(command, con=sqlConnector)
+
+    sqlConnector.close()
+
+    return df

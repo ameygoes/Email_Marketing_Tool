@@ -6,9 +6,9 @@ SMTP_PORT = 465
 SMTP_DOMAIN_NAME = "smtp.gmail.com"
 
 
-FROM = 'abhilega@asu.edu'
+FROM = os.environ.get('gmail')
 EMAIL_PASS = os.environ.get('gmail_password')
-# SUBJECT = 'Summer Internship Application 2023'
-SUBJECT = 'TA, Grader, Tutor, and Lab Assistant Application Request | Amey Bhilegaonkar'
-# to = 'aditisjoshi14@gmail.com'
-# to = 'ajoshi64@asu.edu'
+
+SUBJECT_INTERNSHIP = 'Summer Internship Application 2023'
+SUBJECT_FULL_TIME = ' Full Time Data Engineering Job Application 2024 | Early Careers'
+SUBJECT_GRADER = 'TA, Grader, Tutor, and Lab Assistant Application Request | Amey Bhilegaonkar'

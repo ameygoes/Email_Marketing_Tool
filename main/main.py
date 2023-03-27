@@ -2,12 +2,12 @@ import csv
 from configs.config import *
 from main.mail import Mail
 from entity.hr_mail_pojo import HR_mail_pojo
-READ_URL = f"./{FILE_FOLDER}/{FILE_NAME}"
-OUT_URL = f"./{OUTPUT_FOLDER}/{ASKING_FOR}/{OUTPUT_FILE}"
+
 
 mailingList = []
 
 def main(sending_Mail_for):
+    df = readSQLQueryinPD(command)
     with open(READ_URL) as csv_file:
 
         # READ CSV FILE

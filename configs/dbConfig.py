@@ -18,3 +18,13 @@ INSERT_QUERY_htr = "INSERT IGNORE  INTO `{}` (`FirstName`,`LastName`,`Email` ,`C
 UPDATE_QUERY_STR = "UPDATE {} SET {} = '{}'"
 UPDATE_QUERY_NON_STR = "UPDATE {} SET {} = {}"
 TRUNCATE_TABLE = "TRUNCATE TABLE {}"
+
+
+FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_NOT_SEND = "SELECT FirstName, LastName, Email, Company FROM HR_DETAILS WHERE IsRecruiter = True and FirstEmailSentOn IS NULL"
+FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company FROM hr_details WHERE  IsRecruiter = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL"
+FETCH_RECRUITERS_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company FROM hr_details WHERE  IsRecruiter = True and FollowedUpOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NOT NULL"
+
+
+FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_NOT_SEND = "SELECT FirstName, LastName, Email, Company FROM HR_DETAILS WHERE IsDeveloper = True and FirstEmailSentOn IS NULL"
+FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company FROM hr_details WHERE  IsDeveloper = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL"
+FETCH_DEVELOPER_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company FROM hr_details WHERE  IsDeveloper = True and FollowedUpOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NOT NULL"

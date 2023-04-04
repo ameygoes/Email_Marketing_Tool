@@ -197,7 +197,7 @@ def readSQLQueryinPD(command):
     )
 
     # Read the query results into a pandas DataFrame
-    df = pd.read_sql(command, con=sqlConnector)
+    df = pd.read_sql_query(command, con=sqlConnector)
 
     sqlConnector.close()
 

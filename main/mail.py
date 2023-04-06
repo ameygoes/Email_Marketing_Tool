@@ -11,17 +11,23 @@ from configs.email_config import *
 from configs.dbConfig import *
 from datetime import datetime as dt
 from configs.envrinomentSpecificConfgis import TABLE_NAME
+import random
 from utils.dbUtils.dbUtils import executeCommand, executeGetCommand
 class Mail:
 
     # INIT CONNECTION PARAMETERS 
     def __init__(self):
+        random_number = random.randint(1,3)
         self.port = SMTP_PORT
         self.smtp_server_domain_name = SMTP_DOMAIN_NAME
-        self.sender_mail = FROM
-        self.password = EMAIL_PASS
+        self.sender_mail = os.environ.get(FROM.format(random_number))
+        self.password = os.environ.get(EMAIL_PASS.format(random_number))
         self.sent_for = "Iternship Search"
         self.position = "DATA"
+
+
+    def __repr__(self) -> str:
+        return self.sender_mail
 
     # CHECK IF EMAIL PRESENT IN DB?
     def checkIfRecordPresentInDB(self,email_to_search):
@@ -41,8 +47,10 @@ class Mail:
         today = dt.now()
         if not HR.FollowedUpOn:
             executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_2, today, HR.Email))
+            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_4, self.sent_for, HR.Email))
         else:
             executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_1, today, HR.Email))
+            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_4, self.sent_for, HR.Email))
         # CHECK_IF_EMAIL_SENT_BEFORE.format(TABLE_NAME, HR.Email)
 
         print(f"Record timestamp was updated in DB for: {HR.Email}")

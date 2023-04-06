@@ -15,7 +15,7 @@ def getSQLCommand(num):
         return FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO.format(TABLE_NAME)
     
 def main():
-    sqlRcrdsDF = readSQLQueryinPD(getSQLCommand(1))
+    sqlRcrdsDF = readSQLQueryinPD(getSQLCommand(2))
     
     mail_agent = Mail()
     for index, row in sqlRcrdsDF.iterrows():

@@ -22,7 +22,7 @@ CHECK_IF_EMAIL_SENT_BEFORE = "SELECT COUNT(*) FROM {} WHERE EMAIL=`{}`"
 UPDATE_COL_1 = "FollowedUpOn"
 UPDATE_COL_2 = "FirstEmailSentOn"
 UPDATE_COL_3 = "LinkedinProfile"
-UPDATE_COL_4 = ""
+UPDATE_COL_4 = "SentFor"
 UPDATE_COL_5 = ""
 GET_HR_NULL_LINKEDIN = "SELECT `FirstName`, `LastName`, `Company`,`Email` FROM {} WHERE `LinkedinProfile` IS NULL AND IsProfessor = False"
 

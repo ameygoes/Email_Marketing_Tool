@@ -6,12 +6,12 @@ from email import encoders
 from pathlib import Path
 import csv, pathlib
 from configs.config import *
+from configs.email_bodies import INTERN_REFERAL
 from configs.email_config import *
 from configs.dbConfig import *
-from utils.dbUtils import selectQuery
-from datetime import date
-from configs.envrinomentSpecificConfgis import TABLE_NAME, ASKING_FOR
-
+from datetime import datetime as dt
+from configs.envrinomentSpecificConfgis import TABLE_NAME
+from utils.dbUtils.dbUtils import executeCommand, executeGetCommand
 class Mail:
 
     # INIT CONNECTION PARAMETERS 
@@ -25,7 +25,7 @@ class Mail:
 
     # CHECK IF EMAIL PRESENT IN DB?
     def checkIfRecordPresentInDB(self,email_to_search):
-        return selectQuery(SEARCH_QUERY.format(TABLE_NAME, "Email", email_to_search))
+        return executeGetCommand(SEARCH_QUERY.format(TABLE_NAME, "Email", email_to_search))
 
     # ATTACH FILE TO MAIL 
     def attachDocument(self, mail, file_Path, fname):
@@ -38,32 +38,23 @@ class Mail:
 
     # UPDATE DATABASE / INSERT A ROW IN DATABASE
     def makeUpdateToDB(self, HR):
-        today = date.today()
-        UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_2, today, HR.Email)
-        UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_1, today, HR.Email)
-        CHECK_IF_EMAIL_SENT_BEFORE.format(TABLE_NAME, HR.Email)
+        today = dt.now()
+        if not HR.FollowedUpOn:
+            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_2, today, HR.Email))
+        else:
+            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_1, today, HR.Email))
+        # CHECK_IF_EMAIL_SENT_BEFORE.format(TABLE_NAME, HR.Email)
 
-        
-        with open(output, mode='a') as employee_file:
-            employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        print(f"Record timestamp was updated in DB for: {HR.Email}")
 
-            if askingfor == "referral":
-                employee_writer.writerow([first_Name, " ", email, f'Sent for referral on {today}'])
-            elif askingfor == "folloupUniv":
-                employee_writer.writerow([first_Name, " ", email, f'Sent for folloupUniv on {today}'])
-            elif askingfor == "grader":
-                employee_writer.writerow([first_Name, " ", email, f'Sent for grader on {today}'])
-
-        print(f"Email Sent to: {email}")
-
-    def getInternalReferalContent(self, first_Name, company, Position):
+    def getInternalReferalContent(self, HR):
         return MIMEText(INTERN_REFERAL.format(
-        firstName = first_Name,
-        aspiring_role_title = SKILL_SET[Position]["LOOKING_TITLE"],
-        companyName = company,
-        roleTitle = SKILL_SET[Position]["TITLE"],
+        firstName = HR.FirstName,
+        # aspiring_role_title = SKILL_SET[Position]["LOOKING_TITLE"],
+        companyName = HR.Company
+        # roleTitle = SKILL_SET[Position]["TITLE"],
         # natural_interests = SKILL_SET[Position]["NATURAL_INTERESTS"],
-        profesional_skills = SKILL_SET[Position]["SKILLS"],
+        # profesional_skills = SKILL_SET[Position]["SKILLS"],
         # personalDetails=PERSONAL_DETAILS
         ), 'html')
 
@@ -76,60 +67,54 @@ class Mail:
         companyName = company
         ), 'html')
 
-    def send(self, HR, output):
+    def send(self, HR):
         ssl_context = ssl.create_default_context()
         service = smtplib.SMTP_SSL(self.smtp_server_domain_name, self.port, context=ssl_context)
         service.login(self.sender_mail, self.password)
         BASE_PATH = pathlib.Path().resolve()
 
         mail = MIMEMultipart('alternative')
-        mail['Subject'] = SUBJECT
+        mail['Subject'] = SUBJECT_INTERNSHIP
         mail['From'] = self.sender_mail
-        mail['To'] = HR.email
+        mail['To'] = HR.Email
         
-        resumeFileName = "Amey_Bhilegaonkar_Resume.pdf"
-        MSTxcptsFileName = "Amey_Bhilegaonkar_Masters_Grades.pdf"
-        BETxcptsFileName = "Amey_Bhilegaonkar_Bachelors_Grades.pdf"
 
-        if self.sent_for.lower() == "referral":
-            text_content = self.getInternalReferalContent(HR.first_Name, HR.company, self.position)
+        if self.position.lower() == "data":
+            text_content = self.getInternalReferalContent(HR)
 
             # ATTACH RESUME WITH EMAIL
-            Resume_File_Path = os.path.join(BASE_PATH, FILE_FOLDER, RESUME_FOLDER, self.osition, RESUME_FILE_NAME)
-            self.attachDocument(mail, Resume_File_Path, resumeFileName)
+            Resume_File_Path = os.path.join(RESUME_FOLDER, RESUME_FILE_NAME)
+            self.attachDocument(mail, Resume_File_Path, RESUME_FILE_NAME)
 
         elif self.sent_for.lower() == "folloupUniv":
-            text_content = self.getUniversityRelationsFollowUp(HR.first_Name, HR.company)
+            text_content = self.getUniversityRelationsFollowUp(HR.FirstName, HR.Company)
             # print(text_content)
 
         elif self.sent_for.lower() == "grader":
             text_content = self.getTeacherMailBody()
             # attach resume
             Resume_File_Path = os.path.join(BASE_PATH, FILE_FOLDER, RESUME_FOLDER, self.osition, RESUME_FILE_NAME)
-            self.attachDocument(mail, Resume_File_Path, resumeFileName)
+            self.attachDocument(mail, Resume_File_Path, RESUME_FILE_NAME)
 
             # attach transcripts
             ms_txpts_File_Path = os.path.join(TRANSCRIPTS_FOLDER, MS_TRANSCRIPTS_NAME)
-            self.attachDocument(mail, ms_txpts_File_Path, MSTxcptsFileName)
+            self.attachDocument(mail, ms_txpts_File_Path, MS_TRANSCRIPTS_NAME)
 
-            # attach transcripts
-            be_txpts_File_Path = os.path.join(TRANSCRIPTS_FOLDER, BE_TRANSCRIPTS_NAME)
-            self.attachDocument(mail, be_txpts_File_Path, BETxcptsFileName)
+            # # attach transcripts
+            # be_txpts_File_Path = os.path.join(TRANSCRIPTS_FOLDER, BE_TRANSCRIPTS_NAME)
+            # self.attachDocument(mail, be_txpts_File_Path, BETxcptsFileName)
 
             # print(text_content)
 
         else:
             print("Erroring out..")
             exit(-1)
+
         mail.attach(text_content)
 
+        service.sendmail(self.sender_mail, HR.Email, mail.as_string())
+        print(f"Email was sent to: {HR.Email}")
+        self.makeUpdateToDB(HR)
 
-
-        # CHECK IF WE ALREADY SENT AN EMAIL OR NOT
-        if not self.checkInFile(HR.email, output):
-            service.sendmail(self.sender_mail, HR.email, mail.as_string())
-            self.writeToOutputFile(HR.first_Name, HR.email, output, self.sent_for)
-        else:
-            print(f"Skipping {HR.email}")
 
         service.quit()

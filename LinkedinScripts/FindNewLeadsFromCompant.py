@@ -18,7 +18,7 @@ from urllib.parse import quote
 # Script Configuration
 linkedin_email = os.environ.get("LINKED_IN_UN") # place your linkedin login email
 linkedin_password = os.environ.get("LINKED_IN_PASS") # place your linkedin login password
-target_company_link = "https://www.linkedin.com/company/unilever/" # place company URL in mentioned format only! do not remove trailing slash
+target_company_link = "https://www.linkedin.com/company/barclays-bank/" # place company URL in mentioned format only! do not remove trailing slash
 # End Script Configuration
 
 class LinkedIn:

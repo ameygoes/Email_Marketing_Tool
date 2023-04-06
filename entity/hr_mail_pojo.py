@@ -21,6 +21,8 @@ class HR_mail_pojo():
         self.IsDeveloper = None
         self.DidSend = None
 
+    def __repr__(self):
+        return f"Hi.. I am {self.FirstName}"
 
     @staticmethod
     def getObjectValueList(listOfObjects):

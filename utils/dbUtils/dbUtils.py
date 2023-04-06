@@ -87,6 +87,8 @@ def executeCommand2(command, vals):
 # EXECUTE GET COMMAND
 def executeGetCommand(command):
     # Open SQL Connection
+    returnOneRow = None
+    
     sqlConnector = mysqlConnector.connect(
         host=HOST_NAME,
         user=DB_USER_NAME,
@@ -187,6 +189,7 @@ def createDBBootUp(fileNameList):
 
 
 def readSQLQueryinPD(command):
+    print("Here")
 # Connect to the database
     sqlConnector = mysqlConnector.connect(
         host=HOST_NAME,

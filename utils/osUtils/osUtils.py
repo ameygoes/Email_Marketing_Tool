@@ -46,7 +46,7 @@ def getBaseDir():
     flag = True
     for path in sys.path:
         possibleProjectName = path.split(getSplitParameter(os_name))[-1]
-        if PROJECT == possibleProjectName:
+        if PROJECT.lower() == possibleProjectName.lower():
             BASE_DIR = path
             flag = False
             break

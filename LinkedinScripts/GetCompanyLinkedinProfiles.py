@@ -11,9 +11,9 @@ driver = webdriver.Chrome(options=options)
 NUM_PAGES = 10
 # Navigate to the LinkedIn home page and log in
 driver.get('https://www.linkedin.com')
-driver.find_element(By.NAME, 'session_key').send_keys('bamey2241997@gmail.com')
+driver.find_element(By.NAME, 'session_key').send_keys('email')
 time.sleep(1)
-driver.find_element(By.NAME, 'session_password').send_keys('Linkedin@135')
+driver.find_element(By.NAME, 'session_password').send_keys('pass')
 time.sleep(1)
 driver.find_element(By.NAME, 'session_password').send_keys(Keys.RETURN)
 

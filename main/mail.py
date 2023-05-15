@@ -3,8 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
-from pathlib import Path
-import csv, pathlib
+import pathlib
 from configs.config import *
 from configs.email_bodies import INTERN_REFERAL
 from configs.email_config import *

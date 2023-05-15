@@ -12,7 +12,7 @@ FILE_NAME = "Teacher.csv"
 ASKING_FOR = "grader"
 
 
-ENVIRONMENT = "DEV"  # - POSSIBLE VALUES - DEV, PROD
+ENVIRONMENT = "PROD"  # - POSSIBLE VALUES - DEV, PROD
 
 # THIS IS THE FOLDER WHERE RESUME AND CV IS LOCATED
 # RESUME_FOLDER = os.path.join("C:", os.sep, "Amey", "Resume", "JP_Based_Resumes")

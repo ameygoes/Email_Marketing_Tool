@@ -1,4 +1,4 @@
-from LinkedinScripts.GetLinkedInProfilesFromGoogle import GetLinkedinProfileLink
+from LinkedinScripts.GetLinkedInProfilesFromGoogle import GetLinkedInProfileLink
 from configs.dbConfig import GET_HR_NULL_LINKEDIN, UPDATE_COL_3, UPDATE_QUERY_STR
 from configs.envrinomentSpecificConfgis import TABLE_NAME
 from utils.dbUtils.dbUtils import executeCommand, readSQLQueryinPD
@@ -9,7 +9,7 @@ def randomSleep():
 
 lkProfilesDF = readSQLQueryinPD(GET_HR_NULL_LINKEDIN.format(TABLE_NAME))
 
-lkProfile = GetLinkedinProfileLink()
+lkProfile = GetLinkedInProfileLink()
 
 for index, row in lkProfilesDF.iterrows():
     firstName = row["FirstName"]
@@ -18,7 +18,7 @@ for index, row in lkProfilesDF.iterrows():
     email = row["Email"]
 
     
-    lkProfileLink = lkProfile.getLinkedInProfile(firstName,lastName,company)
+    lkProfileLink = lkProfile.get_linkedin_profile(firstName,lastName,company)
 
     if lkProfileLink:
         try:

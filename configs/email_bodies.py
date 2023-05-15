@@ -2,59 +2,68 @@
 INTERN_REFERAL = """
 <!DOCTYPE html>
 <html>
-<head>
-	<style>
-		p {{
-			margin-bottom: 10px;
-			line-height: 1.5;
-		}}
-	</style>
-</head>
-<body>
-	<p>Hi {firstName},</p>
-
-	<p>Hope you are doing well!</p>
-
-	<p>I am Amey Bhilegaonkar, a Computer Science graduate student at <b>Arizona State University</b>.</p>
-
-	<p>I am writing to express my interest in the <b>Data Engineering</b>, <b>DevOps</b>, <b>Data Analytics</b> Internships at {companyName}.</p>
-
-	<p>In the past, I have worked at a Digital Business Transformation Company called <b>Publicis Sapient</b> for 3+ years as the Data Engineer and DevOps Engineer.</p>
-
-	<p>I think I would be a great fit for your organization because of the following reasons:</p>
-	<ol>
-	  <li>I have a strong technical background with proficiency in <strong>SQL</strong>, <strong>Python</strong>, <strong>Scalable ETL Pipeline Designing</strong>, <strong>Java</strong>, <strong>Apache Spark</strong>. </li>
-	  <li>I have firm grasp on <strong>AWS</strong>. I am also a <strong>GCP Certified</strong> <a href="https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342">Associate Cloud Engineer</a>.</li>
-	  <li>I have deep understanding of <b>CICD</b>, <b>DevOps and Automation toools</b>, <b>Docker</b>, <b> Kafka </b>along with data libraries such as <strong>Pandas, Numpy</strong>, Job Schedulers such as <strong>Airflow</strong> and <strong>Jenkins</strong></li>
-	</ol>
-
-	<p>I have a <b>Collaborative working style</b>, <b>Proactive and Critical mindset</b>. I am excited about the opportunity to join <b>{companyName}</b> and contribute to the company's mission to transform the organization to be data and systems-driven, robust, and efficient.</p>
-
-	<p><b>{companyName}</b> is my top priority and I look forward to hearing from you.</p>
-
-	<p>Thank you for taking the time to consider my request. Have an amazing rest of the day.</p>
-
-	<p>PS: I have also attached my resume with this email for your reference. If you need further information, feel free to contact me.</p>
-	<p>My PortFolio: <a href="https://ameyportfolio.netlify.app">https://ameyportfolio.netlify.app</a></p>
-  
-<p> Best, <br>
-Amey Bhilegaonkar </p>
-</body>
-</html>
-"""
+  <head>
+    <style>
+      p {
+          {
+          margin-bottom: 10px;
+          line-height: 1.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hi {firstName},</p>
+    <p>Hope you are doing well!</p>
+    <p>I am Amey Bhilegaonkar, a Computer Science graduate student at <b>Arizona State University</b>. </p>
+    <p>I am writing to express my interest in the <b>Data Engineering / Analytics </b> and <b>DevOps</b> {applying_for} positions at {companyName}. </p>
+    <p>In the past, I have worked as a <b>Data Engineer and DevOps Engineer</b> at a Digital Business Transformation Company called Publicis Sapient for 3+ years. </p>
+    <p>I think I would be a great fit for your organization because of the following reasons:</p>
+    <ol>
+      <li>I have a strong technical background with proficiency in <b>SQL</b>, <b>Python</b>, <b>Scalable ETL Pipeline Designing</b>, <b>Java</b>, <b>Apache Spark</b>. </li>
+      <li>I have a firm grasp of <b>AWS</b>. I am also a <b>GCP Certified</b>
+        <a href="https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342">Associate Cloud Engineer</a>.
+      </li>
+      <li>I have a deep understanding of <b>CICD</b>, <b>DevOps and Automation tools</b>, <b>Docker</b>, and <b> Kafka </b>along with data libraries such as <b>Pandas, and Numpy</b>, Job Schedulers such as <b>Airflow</b> and <b>Jenkins</b>
+      </li>
+    </ol>
+    <p>I have a <b>Collaborative working style</b>, <b>Proactive and Critical mindset</b>. I am excited about the opportunity to join <b>{companyName}</b> and contribute to the company's mission. </p>
+    <p>
+      <b>{companyName}</b> is my top priority and I look forward to hearing from you.
+    </p>
+    <p>Thank you for taking the time to consider my request. Have an amazing rest of the day.</p>
+    <p>PS: I have also attached my resume with this email for your reference. If you need further information, feel free to contact me.</p>
+    <p>My PortFolio: <a href="https://ameyportfolio.netlify.app">https://ameyportfolio.netlify.app</a>
+    </p>
+    <p>My GitHub: <a href="https://github.com/ameygoes">See Amey's GitHub</a>
+    </p>
+    <p> Best, <br> Amey Bhilegaonkar </p>
+  </body>
+</html> """
 
 # THIS IS NOT CURRENTLY IN USE BUT IS FOR FUTURE USE
 FOLLOW_UP_BODY = """
-Dear {firstName} {lastName},
-
-I hope this message finds you well!
-I recently inquired about a possible summer internship with {companyName} and wanted to be sure to follow up.
-I am very interested in working with {companyName} and would love the opportunity to speak with you regarding the Summer Intern Position.
-I appreciate your time and hope to have the chance to speak with you soon.
-<br>
-
-Best,
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      p {
+          {
+          margin-bottom: 10px;
+          line-height: 1.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>Dear {personName},</p>
+    <p>I would like to extend my sincere gratitude for taking the time to interview me for the position at {companyName}. It was a pleasure speaking with you about the company and the role. Thank you for your thoughtful questions and for providing me with additional information about the company's culture and goals.</p>
+    <p>I appreciate your professionalism and the opportunity to discuss my qualifications for the position. Your insights into the company's values and the job requirements were very helpful, and I feel even more excited about the possibility of joining the team.</p>
+    <p>Thank you again for considering me for this role, and I am truly looking forward to continuing our conversation. Please do not hesitate to contact me if you have any further questions or if there is anything else I can provide.</p>
+    <p>Best regards,</p>
+    <p>Amey Bhilegoankar</p>
+  </body>
+</html>
 """
 
 

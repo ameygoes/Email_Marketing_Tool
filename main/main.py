@@ -1,4 +1,3 @@
-import csv
 from configs.config import *
 from configs.dbConfig import FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_NOT_SEND, FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO
 from configs.envrinomentSpecificConfgis import TABLE_NAME
@@ -15,10 +14,11 @@ def getSQLCommand(num):
         return FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO.format(TABLE_NAME)
     
 def main():
-    sqlRcrdsDF = readSQLQueryinPD(getSQLCommand(2))
+    sqlRcrdsDF = readSQLQueryinPD(getSQLCommand(1))
     
-    mail_agent = Mail()
+    
     for index, row in sqlRcrdsDF.iterrows():
+        mail_agent = Mail()
         HR = HR_mail_pojo()
         HR.FirstName = row['FirstName']
         HR.LastName = row['LastName']
@@ -26,7 +26,7 @@ def main():
         HR.Company = row['Company']
         HR.FirstEmailSentOn = row['FirstEmailSentOn']
         HR.FollowedUpOn = row['FollowedUpOn']
-        print(HR)
+        # print(HR)
         # Access each element in the row using row[column_name] or row[column_index]
 
 

@@ -1,7 +1,6 @@
 # This is the environment variable
 environment: PROD
 
-
 # User related variables:
 first_name: Amey
 last_name: Bhilegaonkar
@@ -19,8 +18,16 @@ cover_letter_file_name: "{{ first_name }}_{{ last_name }}_Cover_Letter.pdf"
 ms_transcripts_name: "{{ first_name }}_{{ last_name }}_MS_Transcripts.pdf"
 be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
+# Whom to send> - At a time only oan be true
+fetch_recruiters: True
+fetch_developers: False
+fetch_teachers: False
 
-# Position Details
+# Send it to any specific company? - Specify Company is the flas is set to True
+send_to_specific_company: False
+company_name: Xyz
+
+# Position Details - Will go in Email Body
 applying_for: Internship
 
 # This is the skill_set dictionary

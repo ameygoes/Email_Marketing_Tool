@@ -4,7 +4,10 @@ from configs.envrinomentSpecificConfgis import TABLE_NAME
 from entity.hr_mail_pojo import HR_mail_pojo
 from mail import Mail
 from utils.dbUtils.dbUtils import readSQLQueryinPD
+import yaml
+import io
 
+from utils.utils import readConfigurations
 mailingList = []
 
 def getSQLCommand(num):
@@ -32,4 +35,13 @@ def main():
 
     
         mail_agent.send(HR)
-main()
+
+
+configs = readConfigurations()
+
+print(configs['ms_transcripts_name'])
+
+
+
+
+

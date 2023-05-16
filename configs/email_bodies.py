@@ -4,19 +4,17 @@ INTERN_REFERAL = """
 <html>
   <head>
     <style>
-      p {
-          {
+      p {{
           margin-bottom: 10px;
           line-height: 1.5;
-        }
-      }
+      }}
     </style>
   </head>
   <body>
     <p>Hi {firstName},</p>
     <p>Hope you are doing well!</p>
     <p>I am {userFirstName} {userLastName}, a Computer Science graduate student at <b>Arizona State University</b>. </p>
-    <p>I am writing to express my interest in the <b>Data Engineering and Analytics {applying_for} position at {companyName}. </p>
+    <p>I am writing to express my interest in the <b>Data Engineering and Analytics</b> {applying_for} position at {companyName}. </p>
     <p>In the past, I have worked as a <b>Data Engineer and DevOps Engineer</b> at a Digital Business Transformation Company called Publicis Sapient for 3+ years. </p>
     <p>I think I would be a great fit for your organization because of the following reasons:</p>
     <ol>

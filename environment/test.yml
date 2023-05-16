@@ -1,6 +1,3 @@
-# This is the environment variable
-environment: DEV
-
 # User related variables:
 personal_details:
   first_name: Amey
@@ -23,9 +20,9 @@ ms_transcripts_name: "{{ first_name }}_{{ last_name }}_MS_Transcripts.pdf"
 be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
 attach_resume: True
-attach_cover_letter: False
-attach_ms_transcripts: False
-attach_bs_transcripts: False
+attach_cover_letter: True
+attach_ms_transcripts: True
+attach_bs_transcripts: True
 
 # Whom to send> - At a time only oan be true
 fetch_recruiters: True

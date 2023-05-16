@@ -1,4 +1,4 @@
-from configs.config import ENVIRONMENT
+from configs.runaable_configs import ENVIRONMENT
 from configs.dbConfig import TEST_TABLE_NAME, PROD_TABLE_NAME
 import os 
 

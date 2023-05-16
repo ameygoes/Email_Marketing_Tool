@@ -5,9 +5,6 @@ from utils.utils import readConfigurations
 configs = readConfigurations(CONFIGURATION_FILE)
 
 
- # - POSSIBLE VALUES - DEV, PROD
-ENVIRONMENT = configs['environment'] 
-
 USER_FIRST_NAME = configs['personal_details']['first_name']
 USER_LAST_NAME = configs['personal_details']['last_name']
 USER_GITHUB_URL = configs['personal_details']['github_url']
@@ -20,7 +17,7 @@ NUMBER_OF_EMAIL_ADDRESSES = configs['personal_details']['no_of_emails']
 
 # THIS DEFINES YOUR MAIN FOLDER AFTER THE ROOT ATTACHMENT_FOLDER
 # ROOT FOLDER IS WHERE YOUR SENDEMAILUSINGGMAIL SCRIPT IS LOCATED
-ATTACHMENT_FOLDER = configs['environment'] 
+ATTACHMENT_FOLDER = configs['attachments_folder'] 
 RESUME_FOLDER = configs['resume_folder'] 
 COVER_LETTER_FOLDER = configs['cover_letter_folder'] 
 TRANSCRIPTS_FOLDER = configs['transcripts_folder'] 
@@ -29,8 +26,8 @@ TRANSCRIPTS_FOLDER = configs['transcripts_folder']
 # THIS IS YOUR FILE NAME OF RESUME AND COVERLETTER
 RESUME_FILE_NAME = configs['resume_file_name'] 
 COVER_LETTER_FILE_NAME = configs['cover_letter_file_name'] 
-MS_TRANSCRIPTS_NAME = configs['attach_ms_transcripts'] 
-BE_TRANSCRIPTS_NAME = configs['attach_bs_transcripts'] 
+MS_TRANSCRIPTS_NAME = configs['ms_transcripts_name'] 
+BE_TRANSCRIPTS_NAME = configs['be_transcripts_name'] 
 
 ATTACH_RESUME = configs['attach_resume'] 
 ATTACH_COVER_LETTER = configs['attach_cover_letter'] 

@@ -133,7 +133,7 @@ class Mail:
         # LOGIN
         ssl_context = ssl.create_default_context()
         service = smtplib.SMTP_SSL(self.smtp_server_domain_name, self.port, context=ssl_context)
-        service.login(self.sender_mail, self.paslsword)
+        service.login(self.sender_mail, self.password)
         
         # INITIATE
         mail = MIMEMultipart('alternative')

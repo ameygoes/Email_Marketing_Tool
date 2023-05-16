@@ -189,7 +189,6 @@ def createDBBootUp(fileNameList):
 
 
 def readSQLQueryinPD(command):
-    print("Here")
 # Connect to the database
     sqlConnector = mysqlConnector.connect(
         host=HOST_NAME,

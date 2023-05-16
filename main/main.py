@@ -1,13 +1,10 @@
 from configs.config import *
 from configs.dbConfig import FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_NOT_SEND, FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO
-from configs.envrinomentSpecificConfgis import TABLE_NAME
+from configs.envrinomentSpecificConfgis import CONFIGURATION_FILE, TABLE_NAME
 from entity.hr_mail_pojo import HR_mail_pojo
 from mail import Mail
 from utils.dbUtils.dbUtils import readSQLQueryinPD
-import yaml
-import io
 
-from utils.utils import readConfigurations
 mailingList = []
 
 def getSQLCommand(num):
@@ -37,9 +34,6 @@ def main():
         mail_agent.send(HR)
 
 
-configs = readConfigurations()
-
-print(configs['ms_transcripts_name'])
 
 
 

@@ -24,8 +24,8 @@ def readConfigurations(filepath):
     data = readYML(filepath)
 
     # Retrieve the values of first_name and last_name from the loaded data
-    first_name = data['first_name']
-    last_name = data['last_name']
+    first_name = data['personal_details']['first_name']
+    last_name = data['personal_details']['last_name']
 
     # Perform variable substitution in the YAML data
     data['resume_file_name'] = data['resume_file_name'].replace("{{ first_name }}", first_name)

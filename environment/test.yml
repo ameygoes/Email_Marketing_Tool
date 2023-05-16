@@ -1,16 +1,20 @@
 # This is the environment variable
-environment: PROD
+environment: DEV
 
 # User related variables:
-first_name: Amey
-last_name: Bhilegaonkar
-no_of_emails: 3
-
+personal_details:
+  first_name: Amey
+  last_name: Bhilegaonkar
+  no_of_emails: 3
+  github_url: https://github.com/ameygoes
+  portfolio_url: https://ameyportfolio.netlify.app
+  certification_url: https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342
+  soft_skills: "Collaborative working style, Proactive and Critical mindset"
 # Attachment Related Information
 attachments_folder: Data
 resume_folder: Resume
 transcripts_folder: Transcripts
-
+cover_letter_folder: CoverLetter
 
 # This is the resume_file_name variable
 resume_file_name: "{{ first_name }}_{{ last_name }}_Resume.pdf"
@@ -18,10 +22,17 @@ cover_letter_file_name: "{{ first_name }}_{{ last_name }}_Cover_Letter.pdf"
 ms_transcripts_name: "{{ first_name }}_{{ last_name }}_MS_Transcripts.pdf"
 be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
+attach_resume: True
+attach_cover_letter: False
+attach_ms_transcripts: False
+attach_bs_transcripts: False
+
 # Whom to send> - At a time only oan be true
 fetch_recruiters: True
 fetch_developers: False
 fetch_teachers: False
+send_follow_up: False
+send_thank_you: False
 
 # Send it to any specific company? - Specify Company is the flas is set to True
 send_to_specific_company: False
@@ -49,12 +60,3 @@ skill_set:
     TITLE: Data Analyst and Data Engineer
     LOOKING_TITLE: Data Engineer and Data Science
     NATURAL_INTERESTS: Data Engineering, Distributed Systems, and Large Data Processing
-
-# This is the pronouns dictionary
-pronouns:
-  M: Mr.
-  F: Ms.
-
-# This is the personal_details variable
-personal_details: |
-  PortFolio : https://ameyportfolio.netlify.app

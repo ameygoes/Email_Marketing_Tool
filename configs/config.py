@@ -1,70 +1,61 @@
-import os
-# THIS DEFINES YOUR MAIN FOLDER AFTER THE ROOT FILE_FOLDER
+from configs.envrinomentSpecificConfgis import CONFIGURATION_FILE
+from utils.utils import readConfigurations
+
+# READS THE CONFIGURATION FILE
+configs = readConfigurations(CONFIGURATION_FILE)
+
+
+ # - POSSIBLE VALUES - DEV, PROD
+ENVIRONMENT = configs['environment'] 
+
+USER_FIRST_NAME = configs['personal_details']['first_name']
+USER_LAST_NAME = configs['personal_details']['last_name']
+USER_GITHUB_URL = configs['personal_details']['github_url']
+USER_PORTFOLIO_URL = configs['personal_details']['portfolio_url']
+USER_CERTIFICATION_URL = configs['personal_details']['certification_url']
+USER_SOFT_SKILLS = configs['personal_details']['soft_skills']
+
+# THIS DEFINES NUMBER OF EMAIL ADDRESSES THAT A PERSON HAS
+NUMBER_OF_EMAIL_ADDRESSES = configs['personal_details']['no_of_emails']
+
+# THIS DEFINES YOUR MAIN FOLDER AFTER THE ROOT ATTACHMENT_FOLDER
 # ROOT FOLDER IS WHERE YOUR SENDEMAILUSINGGMAIL SCRIPT IS LOCATED
-FILE_FOLDER = "Data"
+ATTACHMENT_FOLDER = configs['environment'] 
+RESUME_FOLDER = configs['resume_folder'] 
+COVER_LETTER_FOLDER = configs['cover_letter_folder'] 
+TRANSCRIPTS_FOLDER = configs['transcripts_folder'] 
 
-# THIS IS THE FILENAME OF CSV FILE WHICH CONTAINS DETAILS OF THE HRs
-# FILE_NAME = "inputData.csv"
-FILE_NAME = "Teacher.csv"
-
-# ASKING_FOR = "referral" #"folloupUniv"
-# ASKING_FOR = "folloupUniv"
-ASKING_FOR = "grader"
-
-
-ENVIRONMENT = "PROD"  # - POSSIBLE VALUES - DEV, PROD
-
-# THIS IS THE FOLDER WHERE RESUME AND CV IS LOCATED
-# RESUME_FOLDER = os.path.join("C:", os.sep, "Amey", "Resume", "JP_Based_Resumes")
-RESUME_FOLDER = os.path.join("D:", os.sep, "MY-DOCUMENTS", "RESUME", "JD", "DE")
-
-# TRANSCRIPTS_FOLDER = os.path.join("C:", os.sep, "Amey", "MyDocuments")
-TRANSCRIPTS_FOLDER = os.path.join("D:", os.sep, "study-code-repeat", "coding", "ASU_MCS", "FALL_22_CLASSES_SEM_1", "Grades")
 
 # THIS IS YOUR FILE NAME OF RESUME AND COVERLETTER
-RESUME_FILE_NAME = "AmeyBhilegaonkarResume.pdf"
-COVER_LETTER_FILE_NAME = "Amey_Bhilegaonkar.pdf"
-MS_TRANSCRIPTS_NAME = "Amey_Bhilegaonkar_Masters_Grades"
-BE_TRANSCRIPTS_NAME = "AmeyBhilegaonkarTranscripts.pdf"
+RESUME_FILE_NAME = configs['resume_file_name'] 
+COVER_LETTER_FILE_NAME = configs['cover_letter_file_name'] 
+MS_TRANSCRIPTS_NAME = configs['attach_ms_transcripts'] 
+BE_TRANSCRIPTS_NAME = configs['attach_bs_transcripts'] 
+
+ATTACH_RESUME = configs['attach_resume'] 
+ATTACH_COVER_LETTER = configs['attach_cover_letter'] 
+ATTACH_MS_TRANSCRIPTS = configs['attach_resume'] 
+ATTACH_BS_TRANSCRIPTS = configs['attach_resume'] 
 
 
-OUTPUT_FOLDER = "output"
-OUTPUT_FILE = "mailingOutput.txt"
 
+
+# THIS DEFINES WHOM TO SEND EMAILS
+FETCH_RECRUITERS = configs['fetch_recruiters'] 
+FETCH_DEVELOPERS = configs['fetch_developers'] 
+FETCH_TEACHERS = configs['fetch_teachers'] 
+SEND_FOLLOW_UP = configs['send_follow_up'] 
+SEND_THANK_YOU = configs['send_thank_you'] 
+
+# THIS DEFINES IF YOU WANT TO SEND EMAILS TO SPECIFIC COMPANIES
+SEND_EMAILS_TO_SPECIFIC_COMPANIES = configs['send_to_specific_company']
+GET_COMPANY_NAME = configs['company_name']
+
+# APPLYING FOR?
+APPLYING_FOR = configs['applying_for']
 
 # SKILL SET DICTINARY DEFINES A CERTAIN VALUES DEPENDING ON THE JOB TITLE YOU WANT TO APPLY FOR
 # THE KEY FOR THE DICTIONARY COMES FROM THE INPUT CSV FILE - COL - POSITION
 # WE ALSO NEED TO MAKE SURE WE HAVE THE SIMILAR FOLDER STRUCTURE FOR DATA LIKE RESUME AND CV ALSO
-
 # SKILLS
-SKILL_SET = {
-    "SDE": {
-        "SKILLS": "Java, Spring boot, Python, Django, Databases, Cloud Technologies, Springboot, Apache Spark, Cassandra, Kafka, Airflow, Pandas, Keras",
-        "TITLE": "Associate Software Development Engineer 2",
-        "LOOKING_TITLE": "Software Development Engineer",
-        "NATURAL_INTERESTS": "computer science, Data Structure and Algorithms, Distributed Systems, and Backend Engineering"
-    },
-
-    "DEVOPS": {
-        "SKILLS": "AWS, GCP, Terraform, Jenkins, Docker, Kubernetes, CICD, Python, Java, Bash, Linux, Automation, Databases, DevOps, Git and Version control, code refactoring",
-        "TITLE": "Associate DevOps Engineer",
-        "LOOKING_TITLE": "DevOps Engineer / SRE",
-        "NATURAL_INTERESTS": "computer science, Cloud Technologies, and Automation"
-    },
-    "DATA": {
-        "SKILLS": "Python, MySQL, Pandas, Apache Spark, Airflow, Distributed Databases Systems, Data Cleaning, Data Extraction, Data Visualization",
-        "TITLE": "Data Analyst and Data Engineer",
-        "LOOKING_TITLE": "Data Engineer and Data Science",
-        "NATURAL_INTERESTS": "Data Engineering, Distributed Systems, and Large Data Processing"
-    },
-}
-
-PRONOUNS = {
-    "M": "Mr.",
-    "F": "Ms."
-}
-
-# ADD YOUR PERSONAL DETAILS HERE TO SEND ALONG WITH MAIL
-PERSONAL_DETAILS = """
-PortFolio : https://ameyportfolio.netlify.app
-"""
+SKILL_SET = configs['skill_set']

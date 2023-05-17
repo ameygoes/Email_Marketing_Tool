@@ -21,7 +21,8 @@ ATTACHMENT_FOLDER = configs['attachments_folder']
 RESUME_FOLDER = configs['resume_folder'] 
 COVER_LETTER_FOLDER = configs['cover_letter_folder'] 
 TRANSCRIPTS_FOLDER = configs['transcripts_folder'] 
-
+MS_FOLDER = configs['ms_folder'] 
+BE_FOLDER = configs['be_folder'] 
 
 # THIS IS YOUR FILE NAME OF RESUME AND COVERLETTER
 RESUME_FILE_NAME = configs['resume_file_name'] 
@@ -31,8 +32,8 @@ BE_TRANSCRIPTS_NAME = configs['be_transcripts_name']
 
 ATTACH_RESUME = configs['attach_resume'] 
 ATTACH_COVER_LETTER = configs['attach_cover_letter'] 
-ATTACH_MS_TRANSCRIPTS = configs['attach_resume'] 
-ATTACH_BS_TRANSCRIPTS = configs['attach_resume'] 
+ATTACH_MS_TRANSCRIPTS = configs['attach_ms_transcripts'] 
+ATTACH_BS_TRANSCRIPTS = configs['attach_bs_transcripts'] 
 
 
 

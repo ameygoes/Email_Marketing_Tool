@@ -1,6 +1,6 @@
 from datetime import datetime
 import yaml 
-
+import os
 
 def getCurrentTime():
     return datetime.now()
@@ -39,3 +39,32 @@ def readConfigurations(filepath):
 
     # Print the updated data
     return data
+
+
+def rename_files(folder_path, new_file_name):
+    file_list = os.listdir(folder_path)
+
+    for file_name in file_list:
+        old_file_path = os.path.join(folder_path, file_name)
+        new_file_path = os.path.join(folder_path, new_file_name)
+        os.rename(old_file_path, new_file_path)    
+
+
+# ATTACH FILE TO MAIL 
+def attachDocument(self, mail, folder_path, fname):
+
+    file_list = os.listdir(folder_path)
+
+    # Filter PDF files
+    pdf_files = [file for file in file_list if file.lower().endswith('.pdf')]
+
+    # Attach each PDF file to an email
+    for pdf_file in pdf_files:
+        attachment_path = os.path.join(folder_path, pdf_file)
+
+        mimeBase = MIMEBase("application", "octet-stream")
+        with open(attachment_path, "rb") as file:
+            mimeBase.set_payload(file.read())
+        encoders.encode_base64(mimeBase)
+        mimeBase.add_header("Content-Disposition", f"attachment; filename={fname}")
+        mail.attach(mimeBase)

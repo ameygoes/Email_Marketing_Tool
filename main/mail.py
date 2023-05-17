@@ -14,6 +14,7 @@ from configs.dbConfig import *
 from configs.envrinomentSpecificConfgis import TABLE_NAME
 
 from utils.dbUtils.dbUtils import BASE_DIR, executeCommand, executeGetCommand
+from utils.utils import rename_files
 
 class Mail:
 
@@ -34,23 +35,33 @@ class Mail:
         return executeGetCommand(SEARCH_QUERY.format(TABLE_NAME, "Email", email_to_search))
 
     # ATTACH FILE TO MAIL 
-    def attachDocument(self, mail, file_Path, fname):
-        mimeBase = MIMEBase("application", "octet-stream")
-        with open(file_Path, "rb") as file:
-            mimeBase.set_payload(file.read())
-        encoders.encode_base64(mimeBase)
-        mimeBase.add_header("Content-Disposition", f"attachment; filename={fname}")
-        mail.attach(mimeBase)
+    def attachDocument(self, mail, folder_path, fname):
+
+        file_list = os.listdir(folder_path)
+
+        # Filter PDF files
+        pdf_files = [file for file in file_list if file.lower().endswith('.pdf')]
+
+        # Attach each PDF file to an email
+        for pdf_file in pdf_files:
+            attachment_path = os.path.join(folder_path, pdf_file)
+
+            mimeBase = MIMEBase("application", "octet-stream")
+            with open(attachment_path, "rb") as file:
+                mimeBase.set_payload(file.read())
+            encoders.encode_base64(mimeBase)
+            mimeBase.add_header("Content-Disposition", f"attachment; filename={fname}")
+            mail.attach(mimeBase)
 
     # UPDATE DATABASE / INSERT A ROW IN DATABASE
     def makeUpdateToDB(self, HR):
         today = dt.now()
         if not HR.FollowedUpOn:
             executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_2, today, HR.Email))
-            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_4, self.sent_for, HR.Email))
+            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_4, APPLYING_FOR, HR.Email))
         else:
             executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_1, today, HR.Email))
-            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_4, self.sent_for, HR.Email))
+            executeCommand(UPDATE_QUERY_STR.format(TABLE_NAME, UPDATE_COL_4, APPLYING_FOR, HR.Email))
         # CHECK_IF_EMAIL_SENT_BEFORE.format(TABLE_NAME, HR.Email)
 
         print(f"Record timestamp was updated in DB for: {HR.Email}")
@@ -112,22 +123,22 @@ class Mail:
     # ATTACH FILES TO MAIL SPECIFIED IN THE CONFIG FILE
     def attachNecessaryFiles(self, mail):
         if ATTACH_RESUME:
-             resume_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, RESUME_FOLDER, RESUME_FILE_NAME)
-             self.attachDocument(mail, resume_path, RESUME_FILE_NAME)
+             resume_folder_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, RESUME_FOLDER)
+             self.attachDocument(mail, resume_folder_path, RESUME_FILE_NAME)
         
         if ATTACH_COVER_LETTER:
-            cover_letter_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, COVER_LETTER_FOLDER, COVER_LETTER_FILE_NAME)
-            self.attachDocument(mail, cover_letter_path, COVER_LETTER_FILE_NAME)
+            cover_letter_folder_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, COVER_LETTER_FOLDER)
+            self.attachDocument(mail, cover_letter_folder_path, COVER_LETTER_FILE_NAME)
 
         if ATTACH_MS_TRANSCRIPTS:
-            ms_transcripts_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, TRANSCRIPTS_FOLDER, MS_TRANSCRIPTS_NAME)
-            self.attachDocument(mail, ms_transcripts_path, MS_TRANSCRIPTS_NAME)
+            ms_transcripts_folder_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, TRANSCRIPTS_FOLDER, MS_FOLDER)
+            self.attachDocument(mail, ms_transcripts_folder_path, MS_TRANSCRIPTS_NAME)
 
         if ATTACH_BS_TRANSCRIPTS:
-            bs_transcripts_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, TRANSCRIPTS_FOLDER, BE_TRANSCRIPTS_NAME)
-            self.attachDocument(mail, bs_transcripts_path, BE_TRANSCRIPTS_NAME)
+            bs_transcripts_folder_path = os.path.join(BASE_DIR, ATTACHMENT_FOLDER, TRANSCRIPTS_FOLDER, BE_FOLDER)
+            self.attachDocument(mail, bs_transcripts_folder_path, BE_TRANSCRIPTS_NAME)
 
-
+    # SEND EMAIL
     def send(self, HR):
 
         # LOGIN

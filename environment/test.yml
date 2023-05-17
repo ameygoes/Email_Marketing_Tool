@@ -1,16 +1,19 @@
 # User related variables:
 personal_details:
-  first_name: Amey
-  last_name: Bhilegaonkar
+  first_name: Ayush
+  last_name: Joshi
   no_of_emails: 3
   github_url: https://github.com/ameygoes
   portfolio_url: https://ameyportfolio.netlify.app
   certification_url: https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342
   soft_skills: "Collaborative working style, Proactive and Critical mindset"
+
 # Attachment Related Information
 attachments_folder: Data
 resume_folder: Resume
 transcripts_folder: Transcripts
+be_folder: be
+ms_folder: ms
 cover_letter_folder: CoverLetter
 
 # This is the resume_file_name variable
@@ -20,9 +23,9 @@ ms_transcripts_name: "{{ first_name }}_{{ last_name }}_MS_Transcripts.pdf"
 be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
 attach_resume: True
-attach_cover_letter: True
-attach_ms_transcripts: True
-attach_bs_transcripts: True
+attach_cover_letter: False
+attach_ms_transcripts: False
+attach_bs_transcripts: False
 
 # Whom to send> - At a time only oan be true
 fetch_recruiters: True

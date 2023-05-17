@@ -1,3 +1,59 @@
-first_name: John
-last_name: Smith
-full_name: "${first_name} ${last_name}"
+# User related variables:
+personal_details:
+  first_name: Amey
+  last_name: Bhilegaonkar
+  no_of_emails: 3
+  github_url: https://github.com/ameygoes
+  portfolio_url: https://ameyportfolio.netlify.app
+  certification_url: https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342
+  soft_skills: "Collaborative working style, Proactive and Critical mindset"
+# Attachment Related Information
+attachments_folder: Data
+resume_folder: Resume
+transcripts_folder: Transcripts
+cover_letter_folder: CoverLetter
+
+# This is the resume_file_name variable
+resume_file_name: "{{ first_name }}_{{ last_name }}_Resume.pdf"
+cover_letter_file_name: "{{ first_name }}_{{ last_name }}_Cover_Letter.pdf"
+ms_transcripts_name: "{{ first_name }}_{{ last_name }}_MS_Transcripts.pdf"
+be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
+
+attach_resume: True
+attach_cover_letter: True
+attach_ms_transcripts: True
+attach_bs_transcripts: True
+
+# Whom to send> - At a time only oan be true
+fetch_recruiters: True
+fetch_developers: False
+fetch_teachers: False
+send_follow_up: False
+send_thank_you: False
+
+# Send it to any specific company? - Specify Company is the flas is set to True
+send_to_specific_company: False
+company_name: Xyz
+
+# Position Details - Will go in Email Body
+applying_for: Internship
+
+# This is the skill_set dictionary
+skill_set:
+  SDE:
+    SKILLS: Java, Spring boot, Python, Django, Databases, Cloud Technologies, Springboot, Apache Spark, Cassandra, Kafka, Airflow, Pandas, Keras
+    TITLE: Associate Software Development Engineer 2
+    LOOKING_TITLE: Software Development Engineer
+    NATURAL_INTERESTS: computer science, Data Structure and Algorithms, Distributed Systems, and Backend Engineering
+
+  DEVOPS:
+    SKILLS: AWS, GCP, Terraform, Jenkins, Docker, Kubernetes, CICD, Python, Java, Bash, Linux, Automation, Databases, DevOps, Git and Version control, code refactoring
+    TITLE: Associate DevOps Engineer
+    LOOKING_TITLE: DevOps Engineer / SRE
+    NATURAL_INTERESTS: computer science, Cloud Technologies, and Automation
+
+  DATA:
+    SKILLS: Python, MySQL, Pandas, Apache Spark, Airflow, Distributed Databases Systems, Data Cleaning, Data Extraction, Data Visualization
+    TITLE: Data Analyst and Data Engineer
+    LOOKING_TITLE: Data Engineer and Data Science
+    NATURAL_INTERESTS: Data Engineering, Distributed Systems, and Large Data Processing

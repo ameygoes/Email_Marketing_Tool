@@ -144,7 +144,7 @@ class LinkedIn:
         try:
             company_username = company_link.split('.com/company/')[1].replace('/','')
         except:
-            print("Use company link like https://www.linkedin.com/company/unilever/ only!")
+            print("Wrong Company URL. Company Format should be https://www.linkedin.com/company/company_Username/!")
             return None
         resp = self.s.get(company_link, headers=self.headers).text
         token = self.s.cookies.get_dict().get('JSESSIONID').replace('"','')
@@ -155,6 +155,7 @@ class LinkedIn:
         }
         api_link = 'https://www.linkedin.com/voyager/api/organization/companies?decorationId=com.linkedin.voyager.deco.organization.web.WebCompanyStockQuote-2&q=universalName&universalName={}'.format(quote(company_username))
         resp = self.s.get(api_link, headers=headers).json()
+        print(resp)
         company_id = resp.get('elements')[0].get('entityUrn').split(':')[-1]
         return company_id
 

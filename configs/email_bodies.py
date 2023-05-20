@@ -14,16 +14,16 @@ INTERN_REFERAL = """
     <p>Hi {firstName},</p>
     <p>Hope you are doing well!</p>
     <p>I am {userFirstName} {userLastName}, a Computer Science graduate student at <b>Arizona State University</b>. </p>
-    <p>I am writing to express my interest in the <b>Data Engineering and Analytics</b> {applying_for} position at {companyName}. </p>
-    <p>In the past, I have worked as a <b>Data Engineer and DevOps Engineer</b> at a Digital Business Transformation Company called Publicis Sapient for 3+ years. </p>
+    <p>I am writing to express my interest in the <b>{interst}</b> {applying_for} position at {companyName}. </p>
+    <p>In the past, I have worked as a <b>{prev_title}</b> at a Digital Business Transformation Company called {prev_company} for {exp_in_years} years. </p>
     <p>I think I would be a great fit for your organization because of the following reasons:</p>
     <ol>
-      <li>I have a strong technical background with proficiency in <b>SQL</b>, <b>Python</b>, <b>Scalable ETL Pipeline Designing</b>, <b>Java</b>, <b>Apache Spark</b>. </li>
+      <li>I have a strong technical background with proficiency in <b>{technical_skills_1}</b>. </li>
       <li>I have a firm grasp of <b>AWS</b>. I am also a <b>GCP Certified</b>
         <a href="{userCertificationURL}">Associate Cloud Engineer</a>.
       </li>
-      <li>I have a deep understanding of <b>CICD</b>, <b>DevOps and Automation tools</b>, <b>Docker</b>, and <b> Kafka </b>along with data libraries such as <b>Pandas, and Numpy</b>, Job Schedulers such as <b>Airflow</b> and <b>Jenkins</b>
-      </li>
+      <li>I have a deep understanding of designing streaming and batch ETL jobs using <b>{technical_skills_3}</b> along with data libraries such as <b>Pandas, and Numpy</b>, Job Schedulers such as <b>Airflow</b> and <b>Jenkins</b></li>
+      <li>I have  </li>
     </ol>
     <p>I have <b>{soft_skills}</b>. I am excited about the opportunity to join <b>{companyName}</b> and contribute to the company's mission. </p>
     <p>

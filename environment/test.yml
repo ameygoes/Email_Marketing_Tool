@@ -3,10 +3,22 @@ personal_details:
   first_name: Ayush
   last_name: Joshi
   no_of_emails: 3
+  interest: "Data Engineering and Analytics"
+  prev_title: "Data Engineer and DevOps Engineer"
+  prev_company: "Publicis Sapient"
+  exp_in_years: 3+
   github_url: https://github.com/ameygoes
   portfolio_url: https://ameyportfolio.netlify.app
   certification_url: https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342
   soft_skills: "Collaborative working style, Proactive and Critical mindset"
+  technical_skills:
+    bullet_1: "Python, SQL, Scalable ETL Pipeline Designing, and Apache Spark"
+    bullet_2:
+    bullet_3: "Kafka, AWS Kinesis, AWS SQS, GCP Pub-Sub and GCP Dataflow"
+    bullet_4: "Terraform, CICD, DevOps and Automation testing, and Docker"
+
+# Position Details - Will go in Email Body
+applying_for: Internship
 
 # Attachment Related Information
 attachments_folder: Data
@@ -37,9 +49,6 @@ send_thank_you: False
 # Send it to any specific company? - Specify Company is the flas is set to True
 send_to_specific_company: False
 company_name: Xyz
-
-# Position Details - Will go in Email Body
-applying_for: Internship
 
 # This is the skill_set dictionary
 skill_set:

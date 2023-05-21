@@ -99,10 +99,10 @@ GRADER_MAIL = """
 <html>
   <head>
     <style>
-      p {
+      p {{
         margin-bottom: 10px;
         line-height: 1.5;
-      }
+      }}
     </style>
   </head>
   <body>

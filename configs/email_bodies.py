@@ -23,7 +23,7 @@ INTERN_REFERAL = """
         <a href="{userCertificationURL}">Associate Cloud Engineer</a>.
       </li>
       <li>I have a deep understanding of designing streaming and batch ETL jobs using <b>{technical_skills_3}</b> along with data libraries such as <b>Pandas, and Numpy</b>, Job Schedulers such as <b>Airflow</b> and <b>Jenkins</b></li>
-      <li>I have  </li>
+      <li>I have expertise in designing and deploying infrastucture using <b>{technical_skills_4}.</b> </li>
     </ol>
     <p>I have <b>{soft_skills}</b>. I am excited about the opportunity to join <b>{companyName}</b> and contribute to the company's mission. </p>
     <p>
@@ -94,6 +94,7 @@ SLIDING_INTO_DMS = """
 
 
 GRADER_MAIL = """
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -105,29 +106,21 @@ GRADER_MAIL = """
     </style>
   </head>
   <body>
-    <p>Hi Professor,</p>
-    <p>Hope this email finds you well!</p>
-    <p>I am <b>Amey Bhilegaonkar</b>, a Master's student in Computer Science, writing to apply for the <b>Grader, Tutor, TA, and Lab Assistant</b> job opportunity for <b>Spring 2023</b>. </p>
-    <p>In the <b>fall 2022</b> semester at the Tempe campus, I took the following courses: </p>
+    <p>Dear Professor,</p>
+    <p>I hope this email finds you in good health and high spirits!</p>
+    <p>My name is <b>{userFirstName} {userLastName}</b>, and I am a passionate Master's student in {currentMajor} with {currentGPA} GPA. I am writing to express my strong interest in the <b>Grader, TA, and Lab Assistant</b> positions for the upcoming semester.</p>
+    <p>During the previous semesters at the esteemed Tempe campus, I had the privilege of taking the following courses, which enriched my knowledge and skills:</p>
     <ol>
-      <li>CSE 575 Statistical Machine Learning</li>
-      <li>CSE 594 Spatial Data Science</li>
-      <li>CSE 543 Information Assurance and Security</li>
+    {subjectList}
     </ol>
-    <p>In <b>Spring 2023</b>, I am enrolled in the following courses: </p>
-    <ol>
-      <li>Data Processing at Scale</li>
-      <li>Data Mining</li>
-      <li>Knowledge Representation</li>
-    </ol>
-    <p>I have completed my undergraduate studies in Electronics and Telecommunications Engineering with a CGPA of 8.78/10. Additionally, I have experience grading assignments for a private tuition teacher and have provided tutoring and mentoring to several juniors.</p>
-    <p>I also conduct online helping sessions called " <b>A helping hand</b>" for undergraduate students on LinkedIn. </p>
-    <p>During my undergraduate studies, I led the Machine Learning Club, where I mentored juniors and promoted awareness of projects and research in the field of Machine Learning and Data Science. I worked on projects such as Emotion Detection using Speech and Images and developed an End-to-End project to streamline the college's training and placement process.</p>
-    <p>Furthermore, I have over <b>3 years of experience</b> as a <b>Data Engineer</b> at Publicis Sapient, a Digital Business Transformation company. My role involved working on Distributed Database Systems, Cloud technologies (AWS, GCP), Design Patterns, SDLC, Agile, and DevOps. </p>
-    <p>I understand that your time is valuable, and I appreciate your consideration for the <b>Grader, Tutor, TA, and Lab Assistant positions</b>. I hope to hear from you soon. </p>
-    <p>Thank you for your time. Wishing you an amazing day!</p>
-    <p>PS: I have attached my resume and transcripts to this email. You can also find my portfolio at <a href="https://ameyportfolio.netlify.app">https://ameyportfolio.netlify.app</a>. </p>
-    <p>Thank you,</p>
-    <p>Amey Bhilegaonkar</p>
+    <p>Prior to my graduate studies, I pursued my undergraduate degree in {prevMajor} Engineering, achieving an outstanding CGPA of {prevGPA}. Throughout my academic journey, I consistently demonstrated dedication and excellence in my coursework.</p>
+    <p>Moreover, I have gained valuable experience in grading assignments as a private tuition teacher. This role allowed me to develop strong attention to detail and provide constructive feedback to students. Additionally, I have mentored and tutored numerous junior students, fostering their understanding and passion for the subjects.</p>
+    <p>Driven by my commitment to academic support and collaboration, I organize online assistance sessions called "<b>A Helping Hand</b>" on LinkedIn, where I guide undergraduate students in their studies. This initiative has proven highly beneficial, and the positive feedback from participants has been truly rewarding.</p>
+    <p>Furthermore, I bring over <b>{exp_in_years}</b> years of professional experience as a <b>{prev_title}</b> at {prev_company}, a renowned Digital Business Transformation company.</p>
+    <p>I deeply value your time and consideration, and I am truly grateful for the opportunity to apply for the <b>Grader, TA, and Lab Assistant positions</b>. I eagerly await the chance to contribute my skills, knowledge, and passion and to create a positive and engaging learning environment for students. With my dedication and enthusiasm, I am confident in my ability to assist both students and faculty members effectively.</p>
+<p>Thank you once again for your time and attention. I wish you an amazing day!</p>
+<p>Sincerely,</p>
+<p>{userFirstName} {userLastName}</p>
+
   </body>
 </html>"""

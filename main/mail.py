@@ -73,29 +73,54 @@ class Mail:
                 firstName = HR.FirstName,
                 userFirstName = USER_FIRST_NAME,
                 userLastName = USER_LAST_NAME,
+                interst = USER_INTERESTS,
                 applying_for = APPLYING_FOR,
                 companyName = HR.Company,
+                prev_title  = USER_PREV_TITLE,
+                prev_company = USER_PREV_COMPANY,
+                exp_in_years = USER_EXP_IN_YEARS,
+                technical_skills_1 = USER_TECH_SKILLS_1,
                 userCertificationURL = USER_CERTIFICATION_URL,
+                technical_skills_3 = USER_TECH_SKILLS_3,
+                technical_skills_4 = USER_TECH_SKILLS_4,
                 soft_skills = USER_SOFT_SKILLS,
                 userPortFolioURL = USER_PORTFOLIO_URL,
-                userGitHubURL = USER_GITHUB_URL  
+                userGitHubURL = USER_GITHUB_URL
             )
         
         elif FETCH_DEVELOPERS:
-            return INTERN_REFERAL.format(
+                return INTERN_REFERAL.format(
                 firstName = HR.FirstName,
                 userFirstName = USER_FIRST_NAME,
                 userLastName = USER_LAST_NAME,
+                interst = USER_INTERESTS,
                 applying_for = APPLYING_FOR,
                 companyName = HR.Company,
+                prev_title  = USER_PREV_TITLE,
+                prev_company = USER_PREV_COMPANY,
+                exp_in_years = USER_EXP_IN_YEARS,
+                technical_skills_1 = USER_TECH_SKILLS_1,
                 userCertificationURL = USER_CERTIFICATION_URL,
+                technical_skills_3 = USER_TECH_SKILLS_3,
+                technical_skills_4 = USER_TECH_SKILLS_4,
                 soft_skills = USER_SOFT_SKILLS,
                 userPortFolioURL = USER_PORTFOLIO_URL,
-                userGitHubURL = USER_GITHUB_URL  
+                userGitHubURL = USER_GITHUB_URL
             )
         
         elif FETCH_TEACHERS:
-            return GRADER_MAIL
+            return GRADER_MAIL.format(
+                userFirstName = USER_FIRST_NAME,
+                userLastName = USER_LAST_NAME,
+                currentMajor = USER_CURRENT_MAJOR,
+                currentGPA = USER_CURRENT_GPA,
+                prevMajor = USER_PREV_MAJOR,
+                prevGPA = USER_PREV_GPA,
+                exp_in_years = USER_EXP_IN_YEARS,
+                prev_title = USER_PREV_TITLE,
+                prev_company = USER_PREV_COMPANY,
+                subjectList = "\n".join([f"<li>{item}</li>" for item in USER_SUBJECTS])
+            )
         
         elif SEND_FOLLOW_UP:
              return SLIDING_INTO_DMS.format(

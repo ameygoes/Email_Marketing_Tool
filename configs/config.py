@@ -4,6 +4,7 @@ from utils.utils import readConfigurations
 # READS THE CONFIGURATION FILE
 configs = readConfigurations(CONFIGURATION_FILE)
 
+EMAIL_SUBJECT = configs['email_subject']
 
 USER_FIRST_NAME = configs['personal_details']['first_name']
 USER_LAST_NAME = configs['personal_details']['last_name']

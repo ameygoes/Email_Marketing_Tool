@@ -1,3 +1,4 @@
+email_subject: "Application for Fall Internship 2023 | New Grad Role 2024"
 # User related variables:
 personal_details:
   first_name: Amey
@@ -50,9 +51,9 @@ attach_ms_transcripts: False
 attach_bs_transcripts: False
 
 # Whom to send> - At a time only one be true
-fetch_recruiters: False
+fetch_recruiters: True
 fetch_developers: False
-fetch_teachers: True
+fetch_teachers: False
 send_follow_up: False
 send_thank_you: False
 

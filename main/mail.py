@@ -173,7 +173,7 @@ class Mail:
         
         # INITIATE
         mail = MIMEMultipart('alternative')
-        mail['Subject'] = SUBJECT_INTERNSHIP
+        mail['Subject'] = EMAIL_SUBJECT
         mail['From'] = self.sender_mail
         mail['To'] = HR.Email
         

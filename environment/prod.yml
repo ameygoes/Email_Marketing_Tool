@@ -1,3 +1,5 @@
+# email_subject: "Application for New Grad Role 2024"
+email_subject: "Application for Gader Role"
 # User related variables:
 personal_details:
   first_name: Amey
@@ -15,9 +17,20 @@ personal_details:
     bullet_1: "Python, SQL, Scalable ETL Pipeline Designing, and Apache Spark"
     bullet_3: "Kafka, AWS Kinesis, AWS SQS, GCP Pub-Sub and GCP Dataflow"
     bullet_4: "Terraform, CICD, DevOps and Automation testing, and Docker"
-
-# Position Details - Will go in Email Body
-applying_for: Internship
+    # Position Details - Will go in Email Body
+  applying_for: Internship
+education_details:
+  current_major: Computer Science
+  current_gpa: "4.0/4.0"
+  prev_major: Electronics and Telecommunications
+  prev_gpa: "8.78/10.00"
+  subjects_taken:
+    - "CSE 575: Statistical Machine Learning"
+    - "CSE 594: Spatial Data Science"
+    - "CSE 543: Information Assurance and Security"
+    - "CSE 511: Data Processing at Scale"
+    - "CSE 572: Data Mining"
+    - "CSE 579: Knowledge Representation"
 
 # Attachment Related Information
 attachments_folder: Data
@@ -35,13 +48,13 @@ be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
 attach_resume: True
 attach_cover_letter: False
-attach_ms_transcripts: False
+attach_ms_transcripts: True
 attach_bs_transcripts: False
 
-# Whom to send> - At a time only oan be true
-fetch_recruiters: True
+# Whom to send> - At a time only one be true
+fetch_recruiters: False
 fetch_developers: False
-fetch_teachers: False
+fetch_teachers: True
 send_follow_up: False
 send_thank_you: False
 

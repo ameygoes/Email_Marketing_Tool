@@ -114,10 +114,9 @@ GRADER_MAIL = """
     {subjectList}
     </ol>
     <p>Prior to my graduate studies, I pursued my undergraduate degree in {prevMajor} Engineering, achieving an outstanding CGPA of {prevGPA}. Throughout my academic journey, I consistently demonstrated dedication and excellence in my coursework.</p>
-    <p>Moreover, I have gained valuable experience in grading assignments as a private tuition teacher. This role allowed me to develop strong attention to detail and provide constructive feedback to students. Additionally, I have mentored and tutored numerous junior students, fostering their understanding and passion for the subjects.</p>
-    <p>Driven by my commitment to academic support and collaboration, I organize online assistance sessions called "<b>A Helping Hand</b>" on LinkedIn, where I guide undergraduate students in their studies. This initiative has proven highly beneficial, and the positive feedback from participants has been truly rewarding.</p>
-    <p>Furthermore, I bring over <b>{exp_in_years}</b> years of professional experience as a <b>{prev_title}</b> at {prev_company}, a renowned Digital Business Transformation company.</p>
-    <p>I deeply value your time and consideration, and I am truly grateful for the opportunity to apply for the <b>Grader, TA, and Lab Assistant positions</b>. I eagerly await the chance to contribute my skills, knowledge, and passion and to create a positive and engaging learning environment for students. With my dedication and enthusiasm, I am confident in my ability to assist both students and faculty members effectively.</p>
+    <p>Moreover, I have gained valuable experience in grading assignments as a grader under Dr. Pramod Kumar at ASU last semester. This role allowed me to develop strong attention to detail and provide constructive feedback to students.</p>
+    <p>I deeply value your time and consideration, and I am truly grateful for the opportunity to apply for the <b>Grader, TA, and Lab Assistant positions</b>. </p>
+    <p>I eagerly await the chance to contribute my skills, knowledge, and passion and to create a positive and engaging learning environment for students. With my dedication and enthusiasm, I am confident in my ability to assist both students and faculty members effectively.</p>
 <p>Thank you once again for your time and attention. I wish you an amazing day!</p>
 <p>Sincerely,</p>
 <p>{userFirstName} {userLastName}</p>

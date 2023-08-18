@@ -1,8 +1,8 @@
 import mysql.connector as mysqlConnector
-from configs.dbConfig import HOST_NAME, DB_NAME, DB_USER_NAME, PORT_NAME, DB_PASSWORD, CHECK_IF_EXISTS
+from configs.dbConfig import CHECK_IF_EXISTS_IN_APOLLO, HOST_NAME, DB_NAME, DB_USER_NAME, INSERT_APOLO_POJO, PORT_NAME, DB_PASSWORD, CHECK_IF_EXISTS
 from utils.constants import SQL_FILE_PREFIX
 from utils.osUtils.osUtils import getOSPath, getBaseDir
-from configs.envrinomentSpecificConfgis import TABLE_NAME
+from configs.envrinomentSpecificConfgis import APOLLO_TABLE_NAME, TABLE_NAME
 import os
 import datetime
 import pandas as pd
@@ -21,16 +21,19 @@ def getErrorDetails(errorObject):
     )
 
 
-# EXECUTE INSERT COMMAND
-def executeCommand(command):
-    # Open SQL Connection
-    sqlConnector = mysqlConnector.connect(
+def getSQLConnection():
+    return mysqlConnector.connect(
         host=HOST_NAME,
         user=DB_USER_NAME,
         passwd=DB_PASSWORD,
         database=DB_NAME,
         port=PORT_NAME
     )
+
+# EXECUTE INSERT COMMAND
+def executeCommand(command):
+    # Open SQL Connection
+    sqlConnector = getSQLConnection()
 
     mySQLCursor = sqlConnector.cursor()
 
@@ -52,13 +55,7 @@ def executeCommand(command):
 
 def executeCommand2(command, vals):
     # Open SQL Connection
-    sqlConnector = mysqlConnector.connect(
-        host=HOST_NAME,
-        user=DB_USER_NAME,
-        passwd=DB_PASSWORD,
-        database=DB_NAME,
-        port=PORT_NAME
-    )
+    sqlConnector = getSQLConnection()
 
     mySQLCursor = sqlConnector.cursor()
     try:
@@ -83,19 +80,41 @@ def executeCommand2(command, vals):
     mySQLCursor.close()
     sqlConnector.close()
 
+def record_exists(sqlConnector, employee_id):
+    cursor = sqlConnector.cursor()
+    cursor.execute(CHECK_IF_EXISTS_IN_APOLLO.format(APOLLO_TABLE_NAME), (employee_id,))
+    result = cursor.fetchone()
+    return result[0] > 0
+
+def executeMany(apolo_data):
+
+    sqlConnector = getSQLConnection()
+    mySQLCursor = sqlConnector.cursor()
+
+    for employee in apolo_data:
+        if not record_exists(sqlConnector, employee.get_id()):
+            data = (employee.get_id(), employee.get_first_name(), employee.get_last_name(),
+                    employee.get_linkedin_url(), employee.get_title(), employee.is_email_verified(),
+                    employee.get_country(), employee.get_email(), employee.get_headline(),
+                    employee.get_organization_name())
+
+            try:
+                mySQLCursor.execute(INSERT_APOLO_POJO.format(APOLLO_TABLE_NAME), data)
+                sqlConnector.commit()
+            except mysqlConnector.Error as err:
+                print(getErrorDetails(err))
+    
+       
+    # Close the Connection
+    mySQLCursor.close()
+    sqlConnector.close()
 
 # EXECUTE GET COMMAND
 def executeGetCommand(command):
     # Open SQL Connection
     returnOneRow = None
     
-    sqlConnector = mysqlConnector.connect(
-        host=HOST_NAME,
-        user=DB_USER_NAME,
-        passwd=DB_PASSWORD,
-        database=DB_NAME,
-        port=PORT_NAME
-    )
+    sqlConnector = getSQLConnection()
 
     mySQLCursor = sqlConnector.cursor()
 

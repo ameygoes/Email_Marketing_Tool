@@ -1,4 +1,5 @@
-email_subject: "Application for Fall Internship 2023 | New Grad Role 2024"
+# email_subject: "Application for New Grad Role 2024"
+email_subject: "Application for Gader Role"
 # User related variables:
 personal_details:
   first_name: Amey
@@ -47,13 +48,13 @@ be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
 attach_resume: True
 attach_cover_letter: False
-attach_ms_transcripts: False
+attach_ms_transcripts: True
 attach_bs_transcripts: False
 
 # Whom to send> - At a time only one be true
-fetch_recruiters: True
+fetch_recruiters: False
 fetch_developers: False
-fetch_teachers: False
+fetch_teachers: True
 send_follow_up: False
 send_thank_you: False
 

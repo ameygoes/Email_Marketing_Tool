@@ -75,6 +75,7 @@ class Mail:
                 userLastName = USER_LAST_NAME,
                 interst = USER_INTERESTS,
                 applying_for = APPLYING_FOR,
+                job_link = JOB_LINK,
                 companyName = HR.Company,
                 prev_title  = USER_PREV_TITLE,
                 prev_company = USER_PREV_COMPANY,
@@ -95,6 +96,7 @@ class Mail:
                 userLastName = USER_LAST_NAME,
                 interst = USER_INTERESTS,
                 applying_for = APPLYING_FOR,
+                job_link = JOB_LINK,
                 companyName = HR.Company,
                 prev_title  = USER_PREV_TITLE,
                 prev_company = USER_PREV_COMPANY,
@@ -173,7 +175,7 @@ class Mail:
         
         # INITIATE
         mail = MIMEMultipart('alternative')
-        mail['Subject'] = EMAIL_SUBJECT
+        mail['Subject'] = EMAIL_SUBJECT.format(HR.Company)
         mail['From'] = self.sender_mail
         mail['To'] = HR.Email
         

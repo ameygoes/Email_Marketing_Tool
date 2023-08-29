@@ -35,14 +35,14 @@ FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_NOT_SEND = "SELECT FirstName, LastName, Email
 FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsRecruiter = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL"
 FETCH_RECRUITERS_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsRecruiter = True and FollowedUpOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NOT NULL"
 FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_NOT_SEND_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn  FROM {} WHERE IsRecruiter = True and FirstEmailSentOn IS NULL and company = {}"
-FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsRecruiter = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL and company = {}"
+FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsRecruiter = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL and company = '{}'"
 
 
 FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_NOT_SEND = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE IsDeveloper = True and FirstEmailSentOn IS NULL"
 FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsDeveloper = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL"
 FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_NOT_SEND_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE IsDeveloper = True and FirstEmailSentOn IS NULL"
-FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsDeveloper = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL and company = {}"
-FETCH_DEVELOPER_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsDeveloper = True and FollowedUpOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NOT NULL and company = {}"
+FETCH_DEVELOPER_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsDeveloper = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL and company = '{}'"
+FETCH_DEVELOPER_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsDeveloper = True and FollowedUpOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NOT NULL and company = '{}'"
 
 
 FETCH_TEACHERS_TO_WHOM_EMAIL_WAS_NOT_SEND = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE IsProfessor = True and FirstEmailSentOn IS NULL"

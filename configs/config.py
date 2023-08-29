@@ -1,6 +1,6 @@
 from configs.envrinomentSpecificConfgis import CONFIGURATION_FILE
 from utils.utils import readConfigurations
-
+import random
 # READS THE CONFIGURATION FILE
 configs = readConfigurations(CONFIGURATION_FILE)
 
@@ -61,10 +61,20 @@ SEND_THANK_YOU = configs['send_thank_you']
 # THIS DEFINES IF YOU WANT TO SEND EMAILS TO SPECIFIC COMPANIES
 SEND_EMAILS_TO_SPECIFIC_COMPANIES = configs['send_to_specific_company']
 GET_COMPANY_NAME = configs['company_name']
+job_links = configs.get('job_link', [])
+if job_links:
+    job_links = random.sample(job_links, 3)
+    list_items = "".join([f"<li><a href='{link}'>Job posting {index + 1}</a></li>" for index, link in enumerate(job_links)])
 
+JOB_LINK = f"""
+following positions: <br>
+<ol>
+{list_items}
+</ol>
+""" if job_links else ""
 
 # SKILL SET DICTINARY DEFINES A CERTAIN VALUES DEPENDING ON THE JOB TITLE YOU WANT TO APPLY FOR
 # THE KEY FOR THE DICTIONARY COMES FROM THE INPUT CSV FILE - COL - POSITION
 # WE ALSO NEED TO MAKE SURE WE HAVE THE SIMILAR FOLDER STRUCTURE FOR DATA LIKE RESUME AND CV ALSO
 # SKILLS
-SKILL_SET = configs['skill_set']
+#SKILL_SET = configs['skill_set']

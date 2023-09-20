@@ -63,15 +63,15 @@ SEND_EMAILS_TO_SPECIFIC_COMPANIES = configs['send_to_specific_company']
 GET_COMPANY_NAME = configs['company_name']
 job_links = configs.get('job_link', [])
 if job_links:
-    job_links = random.sample(job_links, 3)
+    job_links = random.sample(job_links, 3) if len(job_links) > 3 else job_links
     list_items = "".join([f"<li><a href='{link}'>Job posting {index + 1}</a></li>" for index, link in enumerate(job_links)])
 
 JOB_LINK = f"""
-following positions: <br>
+for the following positions: <br>
 <ol>
 {list_items}
 </ol>
-""" if job_links else ""
+""" if job_links and SEND_EMAILS_TO_SPECIFIC_COMPANIES else ""
 
 # SKILL SET DICTINARY DEFINES A CERTAIN VALUES DEPENDING ON THE JOB TITLE YOU WANT TO APPLY FOR
 # THE KEY FOR THE DICTIONARY COMES FROM THE INPUT CSV FILE - COL - POSITION

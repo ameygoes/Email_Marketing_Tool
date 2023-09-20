@@ -1,24 +1,27 @@
-# email_subject: "Application for New Grad Role 2024"
-email_subject: "Application for Grader Role"
+email_subject: "Enthusiastic Data Professional Eager to Join {}'s Dynamic Team"
+# "Application for New Grad Role 2024 at {}"
+#  email_subject: "Application for Grader Role"
 # User related variables:
 personal_details:
   first_name: Amey
   last_name: Bhilegaonkar
   no_of_emails: 3
-  interest: "Data Engineering and Analytics"
-  prev_title: "Data Engineer and DevOps Engineer"
+  interest: "SDE, Data Engineering and Data Science"
+  prev_title_1: "Data Science Intern"
+  prev_title: "Software Development Engineer - Data Engineer - 2"
   prev_company: "Publicis Sapient"
   exp_in_years: 3+
   github_url: https://github.com/ameygoes
   portfolio_url: https://ameyportfolio.netlify.app
   certification_url: https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342
-  soft_skills: "Collaborative working style, Proactive and Critical mindset"
+  soft_skills: "a Collaborative working style, a Proactive and Critical mindset"
   technical_skills:
-    bullet_1: "Python, SQL, Scalable ETL Pipeline Designing, and Apache Spark"
-    bullet_3: "Kafka, AWS Kinesis, AWS SQS, GCP Pub-Sub and GCP Dataflow"
+    bullet_1: "Python, Java, SQL, Scalable ETL Pipeline Designing, and Apache Spark"
+    # bullet_3: "Kafka, AWS Kinesis, AWS SQS, GCP Pub-Sub, and GCP Dataflow"
+    bullet_3: "EC2, S3, GLUE, Lambda, Kafka, AWS Kinesis, AWS SQS"
     bullet_4: "Terraform, CICD, DevOps and Automation testing, and Docker"
     # Position Details - Will go in Email Body
-  applying_for: Internship
+  applying_for: Mid / Senior level - Full Time / New Grad
 education_details:
   current_major: Computer Science
   current_gpa: "4.0/4.0"
@@ -48,36 +51,21 @@ be_transcripts_name: "{{ first_name }}_{{ last_name }}_BE_Transcripts.pdf"
 
 attach_resume: True
 attach_cover_letter: False
-attach_ms_transcripts: True
+attach_ms_transcripts: False
 attach_bs_transcripts: False
 
 # Whom to send> - At a time only one be true
-fetch_recruiters: False
+fetch_recruiters: True
 fetch_developers: False
-fetch_teachers: True
+fetch_teachers: False
 send_follow_up: False
 send_thank_you: False
 
 # Send it to any specific company? - Specify Company is the flas is set to True
-send_to_specific_company: False
-company_name: Xyz
-
-# This is the skill_set dictionary
-skill_set:
-  SDE:
-    SKILLS: Java, Spring boot, Python, Django, Databases, Cloud Technologies, Springboot, Apache Spark, Cassandra, Kafka, Airflow, Pandas, Keras
-    TITLE: Associate Software Development Engineer 2
-    LOOKING_TITLE: Software Development Engineer
-    NATURAL_INTERESTS: computer science, Data Structure and Algorithms, Distributed Systems, and Backend Engineering
-
-  DEVOPS:
-    SKILLS: AWS, GCP, Terraform, Jenkins, Docker, Kubernetes, CICD, Python, Java, Bash, Linux, Automation, Databases, DevOps, Git and Version control, code refactoring
-    TITLE: Associate DevOps Engineer
-    LOOKING_TITLE: DevOps Engineer / SRE
-    NATURAL_INTERESTS: computer science, Cloud Technologies, and Automation
-
-  DATA:
-    SKILLS: Python, MySQL, Pandas, Apache Spark, Airflow, Distributed Databases Systems, Data Cleaning, Data Extraction, Data Visualization
-    TITLE: Data Analyst and Data Engineer
-    LOOKING_TITLE: Data Engineer and Data Science
-    NATURAL_INTERESTS: Data Engineering, Distributed Systems, and Large Data Processing
+send_to_specific_company: Meta
+company_name: Spotify
+job_link:   
+  - https://www.metacareers.com/jobs/972704150413607/
+  - https://www.metacareers.com/jobs/632294872093515/
+  - https://www.metacareers.com/jobs/624841835890795/
+  - https://www.metacareers.com/jobs/3157358737902887

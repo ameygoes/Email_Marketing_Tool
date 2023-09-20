@@ -15,9 +15,9 @@ INTERN_REFERAL = """
     <p>Hope you are doing well!</p>
     <p>I am {userFirstName} {userLastName}, a Computer Science graduate student at <b>Arizona State University</b>. </p>
     <p>I am writing to express my interest in the <b>{interst}</b> {applying_for} position at {companyName} {job_link}</p>
-    <p>Recently, I worked as a <b>Data Science Intern</b> at BigCommerce, where I built a <b>classifier Machine Learning model</b> for predicting customer retention.</p>
-    <p>In the past, I have worked as an <b>{prev_title}</b> at a Digital Business Transformation Company called {prev_company} for {exp_in_years} years. </p>
-    <p>I think I would be a great <b>asset</b> to your organization because of the following reasons:</p>
+    <p>Recently in the Summer, I worked as a <b>Data Science Intern</b> at BigCommerce, where I built a <b>classifier Machine Learning model</b> for predicting customer retention.</p>
+    <p>In the past, I have worked as an <b>{prev_title}</b> at a Digital Business Transformation Company called {prev_company} for <b>{exp_in_years} years.</b> </p>
+    <p>I am <b>confident</b> that I would be a great <b>asset</b> to your organization because of the following reasons:</p>
     <ol>
       <li>I have a strong technical background with proficiency in <b>{technical_skills_1}</b>. </li>
       <li>I have a firm grasp of <b>AWS</b>. I am also a <b>GCP Certified</b>
@@ -31,7 +31,6 @@ INTERN_REFERAL = """
       <b>{companyName}</b> is my top priority and I look forward to hearing from you.
     </p>
     <p>Thank you for taking the time to consider my request. Have a fantastic rest of the day.</p>
-    <p>a fantastic rest of the day.
 
     <p>PS: I have also attached my resume with this email for you to look over. If you need further information, feel free to contact me.</p>
     <p>My PortFolio: <a href="{userPortFolioURL}">{userPortFolioURL}</a>

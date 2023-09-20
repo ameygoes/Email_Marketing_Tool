@@ -184,8 +184,18 @@ class Mail:
         self.attachNecessaryFiles(mail)
         mail.attach(HTML_content)
 
+
         # SEND
-        service.sendmail(self.sender_mail, HR.Email, mail.as_string())
-        print(f"Email was sent to: {HR.Email}")
-        self.makeUpdateToDB(HR)
-        service.quit()
+        try:
+            service.sendmail(self.sender_mail, HR.Email, mail.as_string())
+            print(f"Email was sent to: {HR.Email}")
+            self.makeUpdateToDB(HR)
+            service.quit()
+        except smtplib.SMTPRecipientsRefused as e:
+            # Handle the error
+            print("SMTPRecipientsRefused error:", e)
+            # You can add your own error handling logic here, such as logging the error or taking alternative actions.
+        except Exception as e:
+            # Handle other exceptions if needed
+            print("An unexpected error occurred:", e)
+        

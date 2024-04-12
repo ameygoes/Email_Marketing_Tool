@@ -1,3 +1,46 @@
+# # EMAIL BODY  {lastName}
+# INTERN_REFERAL = """
+# <!DOCTYPE html>
+# <html>
+#   <head>
+#     <style>
+#       p {{
+#           margin-bottom: 10px;
+#           line-height: 1.5;
+#       }}
+#     </style>
+#   </head>
+#   <body>
+#     <p>Hi {firstName},</p>
+#     <p>Hope you are doing well!</p>
+#     <p>I am {userFirstName} {userLastName}, a Computer Science graduate student at <b>Arizona State University</b>. </p>
+#     <p>I am writing to express my interest in the <b>{interst}</b> {applying_for} position at {companyName} {job_link}</p>
+#     <p>Recently in the Summer, I worked as a <b>Data Science Intern</b> at BigCommerce, where I built a <b>classifier Machine Learning model</b> for predicting customer retention.</p>
+#     <p>In the past, I have worked as an <b>{prev_title}</b> at a Digital Business Transformation Company called {prev_company} for <b>{exp_in_years} years.</b> </p>
+#     <p>I am <b>confident</b> that I would be a great <b>asset</b> to your organization because of the following reasons:</p>
+#     <ol>
+#       <li>I have a strong technical background with proficiency in <b>{technical_skills_1}</b>. </li>
+#       <li>I have a firm grasp of <b>AWS</b>. I am also a <b>GCP Certified</b>
+#         <a href="{userCertificationURL}">Associate Cloud Engineer</a>.
+#       </li>
+#       <li>I have a deep understanding of designing streaming and batch ETL jobs using <b>{technical_skills_3}</b></li>
+#       <li>I have expertise in designing and deploying infrastructure using <b>{technical_skills_4}.</b> </li>
+#       </ol>
+#     <p>I have <b>{soft_skills}</b>. I am excited about the opportunity to join <b>{companyName}</b> and contribute to the company's mission. </p>
+#     <p>
+#       <b>{companyName}</b> is my top priority and I look forward to hearing from you.
+#     </p>
+#     <p>Thank you for taking the time to consider my request. Have a fantastic rest of the day.</p>
+
+#     <p>PS: I have also attached my resume with this email for you to look over. If you need further information, feel free to contact me.</p>
+#     <p>My PortFolio: <a href="{userPortFolioURL}">{userPortFolioURL}</a>
+#     </p>
+#     <p>My GitHub: <a href="{userGitHubURL}">See {userFirstName}'s GitHub</a>
+#     </p>
+#     <p> Best, <br> {userFirstName} {userLastName} </p>
+#   </body>
+# </html> """
+
 # EMAIL BODY  {lastName}
 INTERN_REFERAL = """
 <!DOCTYPE html>
@@ -12,34 +55,21 @@ INTERN_REFERAL = """
   </head>
   <body>
     <p>Hi {firstName},</p>
-    <p>Hope you are doing well!</p>
-    <p>I am {userFirstName} {userLastName}, a Computer Science graduate student at <b>Arizona State University</b>. </p>
-    <p>I am writing to express my interest in the <b>{interst}</b> {applying_for} position at {companyName} {job_link}</p>
-    <p>Recently in the Summer, I worked as a <b>Data Science Intern</b> at BigCommerce, where I built a <b>classifier Machine Learning model</b> for predicting customer retention.</p>
-    <p>In the past, I have worked as an <b>{prev_title}</b> at a Digital Business Transformation Company called {prev_company} for <b>{exp_in_years} years.</b> </p>
-    <p>I am <b>confident</b> that I would be a great <b>asset</b> to your organization because of the following reasons:</p>
-    <ol>
-      <li>I have a strong technical background with proficiency in <b>{technical_skills_1}</b>. </li>
-      <li>I have a firm grasp of <b>AWS</b>. I am also a <b>GCP Certified</b>
-        <a href="{userCertificationURL}">Associate Cloud Engineer</a>.
-      </li>
-      <li>I have a deep understanding of designing streaming and batch ETL jobs using <b>{technical_skills_3}</b> along with data libraries such as <b>Pandas, and Numpy</b>, Job Schedulers such as <b>Airflow</b> and <b>Jenkins</b></li>
-      <li>I have expertise in designing and deploying infrastructure using <b>{technical_skills_4}.</b> </li>
-      </ol>
-    <p>I have <b>{soft_skills}</b>. I am excited about the opportunity to join <b>{companyName}</b> and contribute to the company's mission. </p>
+    <p>Trust you're doing exceptionally well!</p>
+    <p>I am {userFirstName} {userLastName}, pursuing a <b>Master's in Computer Science</b> at Arizona State University, graduating in May, 24. </p>
+    <p>I'm reaching out to express my keen interest in the {applying_for} <b>{interst}</b>  role at {companyName}{job_link}.</p> 
+    <p><b>Confident</b> in my abilities, I believe I can bring <b>significant value</b> to your esteemed organization.</p>
     <p>
-      <b>{companyName}</b> is my top priority and I look forward to hearing from you.
+      <b>{companyName}</b> stands out as my top choice, and I eagerly anticipate the opportunity to discuss my potential contributions.
     </p>
-    <p>Thank you for taking the time to consider my request. Have a fantastic rest of the day.</p>
-
-    <p>PS: I have also attached my resume with this email for you to look over. If you need further information, feel free to contact me.</p>
-    <p>My PortFolio: <a href="{userPortFolioURL}">{userPortFolioURL}</a>
+    <p>Additionally, I've enclosed my resume for your perusal. Should you require further details, please feel free to reach out.</p>
     </p>
-    <p>My GitHub: <a href="{userGitHubURL}">See {userFirstName}'s GitHub</a>
+    <p>Linkedin: <a href="{userGitHubURL}">See {userFirstName}'s Linkedin</a>
     </p>
     <p> Best, <br> {userFirstName} {userLastName} </p>
   </body>
 </html> """
+
 
 # THIS IS NOT CURRENTLY IN USE BUT IS FOR FUTURE USE
 THANK_YOU_EMAIL = """

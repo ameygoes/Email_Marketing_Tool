@@ -20,7 +20,7 @@ class Mail:
 
     # INIT CONNECTION PARAMETERS 
     def __init__(self):
-        random_number = random.randint(1,NUMBER_OF_EMAIL_ADDRESSES)
+        random_number = random.randint(4,NUMBER_OF_EMAIL_ADDRESSES)
         self.port = SMTP_PORT
         self.smtp_server_domain_name = SMTP_DOMAIN_NAME
         self.sender_mail = os.environ.get(FROM.format(random_number))
@@ -77,14 +77,14 @@ class Mail:
                 applying_for = APPLYING_FOR,
                 job_link = JOB_LINK,
                 companyName = HR.Company,
-                prev_title  = USER_PREV_TITLE,
-                prev_company = USER_PREV_COMPANY,
-                exp_in_years = USER_EXP_IN_YEARS,
-                technical_skills_1 = USER_TECH_SKILLS_1,
-                userCertificationURL = USER_CERTIFICATION_URL,
-                technical_skills_3 = USER_TECH_SKILLS_3,
-                technical_skills_4 = USER_TECH_SKILLS_4,
-                soft_skills = USER_SOFT_SKILLS,
+                # prev_title  = USER_PREV_TITLE,
+                # prev_company = USER_PREV_COMPANY,
+                # exp_in_years = USER_EXP_IN_YEARS,
+                # technical_skills_1 = USER_TECH_SKILLS_1,
+                # userCertificationURL = USER_CERTIFICATION_URL,
+                # technical_skills_3 = USER_TECH_SKILLS_3,
+                # technical_skills_4 = USER_TECH_SKILLS_4,
+                # soft_skills = USER_SOFT_SKILLS,
                 userPortFolioURL = USER_PORTFOLIO_URL,
                 userGitHubURL = USER_GITHUB_URL
             )
@@ -188,7 +188,7 @@ class Mail:
         # SEND
         try:
             service.sendmail(self.sender_mail, HR.Email, mail.as_string())
-            print(f"Email was sent to: {HR.Email}")
+            print(f"Email was sent to: {HR.Email} from: {self.sender_mail}" )
             self.makeUpdateToDB(HR)
             service.quit()
         except smtplib.SMTPRecipientsRefused as e:

@@ -1,33 +1,33 @@
-email_subject: "Enthusiastic Data Professional Eager to Join {}'s Dynamic Team"
-# "Application for New Grad Role 2024 at {}"
+# email_subject: "Enthusiastic Data Professional Eager to Join {}'s Dynamic Team"
+email_subject: "Application for Data Engineer Role at {}"
 #  email_subject: "Application for Grader Role"
 # User related variables:
 personal_details:
   first_name: Amey
   last_name: Bhilegaonkar
   no_of_emails: 3
-  interest: "SDE, Data Engineering and Data Science"
+  interest: "Data Engineering and Data Science"
   prev_title_1: "Data Science Intern"
-  prev_title: "Software Development Engineer - Data Engineer - 2"
+  prev_title: "Data Engineer - 2"
   prev_company: "Publicis Sapient"
   exp_in_years: 3+
-  github_url: https://github.com/ameygoes
+  github_url: https://linkedin.com/in/amey-bhilegaonkar
   portfolio_url: https://ameyportfolio.netlify.app
   certification_url: https://www.credential.net/c799d945-5e89-47a3-845e-8b97575a8342
   soft_skills: "a Collaborative working style, a Proactive and Critical mindset"
   technical_skills:
-    bullet_1: "Python, Java, SQL, Scalable ETL Pipeline Designing, and Apache Spark"
+    bullet_1: "Python, SQL, Scalable ETL Pipeline Designing"
     # bullet_3: "Kafka, AWS Kinesis, AWS SQS, GCP Pub-Sub, and GCP Dataflow"
-    bullet_3: "EC2, S3, GLUE, Lambda, Kafka, AWS Kinesis, AWS SQS"
-    bullet_4: "Terraform, CICD, DevOps and Automation testing, and Docker"
+    bullet_3: "Data Engineering tools like Kafka, Airflow, Apache Spark and BigQuery"
+    bullet_4: "CICD, DevOps, and Docker"
     # Position Details - Will go in Email Body
-  applying_for: Mid / Senior level - Full Time / New Grad
+  applying_for: Full Time
 education_details:
   current_major: Computer Science
   current_gpa: "4.0/4.0"
   prev_major: Electronics and Telecommunications
   prev_gpa: "8.78/10.00"
-  subjects_taken:
+  subjects_taken: 
     - "CSE 575: Statistical Machine Learning"
     - "CSE 594: Spatial Data Science"
     - "CSE 543: Information Assurance and Security"
@@ -62,10 +62,7 @@ send_follow_up: False
 send_thank_you: False
 
 # Send it to any specific company? - Specify Company is the flas is set to True
-send_to_specific_company: Meta
-company_name: Spotify
+send_to_specific_company: False
+company_name: Navan
 job_link:   
-  - https://www.metacareers.com/jobs/972704150413607/
-  - https://www.metacareers.com/jobs/632294872093515/
-  - https://www.metacareers.com/jobs/624841835890795/
-  - https://www.metacareers.com/jobs/3157358737902887
+  - https://navan.com/careers/openings/5382869?gh_jid=5382869&gh_src=Simplify

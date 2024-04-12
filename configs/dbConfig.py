@@ -50,3 +50,10 @@ FETCH_DEVELOPER_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Emai
 FETCH_TEACHERS_TO_WHOM_EMAIL_WAS_NOT_SEND = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE IsProfessor = True and FirstEmailSentOn IS NULL"
 FETCH_TEACHERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsProfessor = True and FirstEmailSentOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NULL"
 FETCH_TEACHER_FOLLOWED_UP_SENT_3_WEEKS_AGO = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE  IsProfessor = True and FollowedUpOn <= DATE_SUB(NOW(), INTERVAL 3 WEEK) and FollowedUpOn IS NOT NULL"
+
+FETCH_PEOPLE_FROM_A_COMPANY = "SELECT FirstName, LastName, Email, Company, FollowedUpOn, FirstEmailSentOn FROM {} WHERE Company = '{}';"
+MAKE_DEV_READY = "UPDATE {} SET Company = '{}', FirstEmailSentOn = '2021-11-18 11:30:00', isRecruiter = True LIMIT 1;"
+
+
+
+

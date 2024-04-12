@@ -22,7 +22,7 @@ class HR_mail_pojo():
         self.DidSend = None
 
     def __repr__(self):
-        return f"Hi.. I am {self.FirstName}"
+        return f"Email is being Sent to: {self.FirstName} - {self.Email}"
 
     @staticmethod
     def getObjectValueList(listOfObjects):

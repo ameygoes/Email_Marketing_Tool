@@ -28,6 +28,7 @@ def getSQLCommand():
             return FETCH_RECRUITERS_TO_WHOM_EMAIL_WAS_SENT_3_WEEKS_AGO.format(TABLE_NAME)
         
 def main():
+    print(getSQLCommand())
     sqlRcrdsDF = readSQLQueryinPD(getSQLCommand())
     
     
